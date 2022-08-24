@@ -1,0 +1,13 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import "base/base";
+
+@import "layout/nav";
+@import "layout/footer";
+
+@import "pages/home";
+@import "pages/signin";
+@import "pages/resetPassword";
+@import "pages/college";
+@import "pages/collegeDetails";
+@import "default.scss";

@@ -1,0 +1,54 @@
+.section-signin {
+    margin-top: toRem(90);
+    // height: 85vh;
+    height: auto;
+    min-height: 100vh;
+    padding: toRem(50) toRem(70);
+}
+// .isValidHide {
+//     .is-valid{
+//         background: transparent
+//     }
+// }
+.signup_heading1 {
+    font-size: 1.25rem;
+    font-family: "Nunito Sans", "Helvetica", "Arial", sans-serif;
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: 0.0125em;
+    color: rgba(48, 50, 100, 1);
+    margin-bottom: 2rem;
+}
+.signup_heading2 {
+    font-size: 1rem;
+    font-family: "Nunito Sans", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.03125em;
+    color: rgba(48, 50, 100, 1);
+    margin-bottom: 2rem;
+}
+.sigin_heading1 {
+    font-size: 1.25rem;
+    font-family: "Nunito Sans", "Helvetica", "Arial", sans-serif;
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: 0.0125em;
+    color: rgba(48, 50, 100, 1);
+    // margin-bottom: 2rem;
+}
+.signin_heading2 {
+    font-size: 1rem;
+    font-family: "Nunito Sans", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.03125em;
+    color: rgba(48, 50, 100, 1);
+    // margin-bottom: 2rem;
+}
+.signin_col1 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
