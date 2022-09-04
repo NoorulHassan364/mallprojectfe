@@ -4,13 +4,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faHandsHoldingChild,
-  // faHandHoldingHand,
-  // faPersonChalkboard,
-  // faHouseChimney,
-  // faCloudSun,
-  // faShieldDog,
-  // faWheelchair,
+  faHandsHoldingChild
 } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 

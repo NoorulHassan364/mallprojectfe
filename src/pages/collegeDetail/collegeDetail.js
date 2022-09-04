@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../api';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Table } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
@@ -10,7 +10,8 @@ import {
     faBuildingColumns,
     faPersonChalkboard,
     faUserGraduate,
-    faUser
+    faUser,
+    faCircleDown
 } from "@fortawesome/free-solid-svg-icons";
 const CollegeDetail = () => {
     const { collegeId } = useParams();
@@ -35,14 +36,40 @@ const CollegeDetail = () => {
             </div>
             <Container>
                 <h1 className='collegeName'>{college?.name}</h1>
-                <div style={{ letterSpacing: "0.1rem" }}>
+                {/* <div style={{ letterSpacing: "0.1rem" }}>
                     {college?.discription}
-                </div>
-                <div className="collegeAllImages">
+                </div> */}
+                {/* <div className="collegeAllImages">
                     {college?.allImages.map((img) => {
                         return <img className='collegeSingleImgeDetial' src={img} alt="" />
                     })}
-                </div>
+                </div> */}
+                <h3 className='college_snap_head'>College Programs</h3>
+                <Table striped bordered hover>
+                    <thead>
+                        <tr>
+                            <th>Programs</th>
+                            <th>Subjects</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            college?.degreeAndPrograms?.map((program, i) => {
+                                return <tr>
+                                    <td>{program?.subject}</td>
+                                    <td>
+                                        {program?.titles?.map((subject) => {
+                                            return subject?.name + ",  "
+                                        })}
+                                    </td>
+                                </tr>
+                            })
+                        }
+                    </tbody>
+                </Table>
+
                 <h3 className='college_snap_head'>College Snapshoot</h3>
                 <Row style={{ padding: "1rem" }}>
                     <Col md={4} sm={12} >
@@ -65,7 +92,7 @@ const CollegeDetail = () => {
                     </Col>
                     <Col md={4} sm={12} className="graduates_div">
                         <div className='graduates_child'>
-                            <span><FontAwesomeIcon style={{ fontSize: "25px" }} icon={faUserGraduate} /></span>
+                            <span><FontAwesomeIcon style={{ fontSize: "25px", color: 'blue' }} icon={faUserGraduate} /></span>
                             <span className='graduates_child1'>{college?.graduates}</span>
                             <span className='graduates_child2'>Graduates</span>
                         </div>
@@ -76,6 +103,15 @@ const CollegeDetail = () => {
                         </div>
                     </Col>
                 </Row>
+
+                <h3 className='college_snap_head'>Download Prospectus</h3>
+                <a href={college?.prospectus} target="_blank" >
+                    <FontAwesomeIcon style={{ fontSize: "2.3rem", color: "green" }} icon={faCircleDown} />
+                </a>
+
+                <h3 className='college_snap_head'>Telophone:</h3>
+                <span style={{ fontWeight: "bold", marginLeft: "1rem", backgroundColor: "yellow" }}>{college?.phone}</span>
+
             </Container>
         </div>
     )

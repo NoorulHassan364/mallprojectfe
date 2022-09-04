@@ -27,7 +27,11 @@ const Index = () => {
                 ...values
             });
             loginSuccess(res.data.token, res.data.user)
-            navigate("/userDashboard/colleges")
+            if (res.data.user.userType == "student") {
+                navigate("/userDashboard/colleges")
+            } else {
+                navigate("/institute/profile")
+            }
         }
         catch (err) {
             console.log(err)

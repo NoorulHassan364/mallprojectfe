@@ -27,8 +27,26 @@ function ProtectedLandingPage({ children }) {
   return <Navigate to="/userDashboard/colleges" replace />;
 }
 
+function ProtectedInstitueRoute({ children }) {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (user?.userType == "student") {
+    return <Navigate to="/userDashboard/colleges" replace />;
+  }
+  return children;
+}
+function ProtectedStudentRoute({ children }) {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (user?.userType == "college") {
+    return <Navigate to="/institute/profile" replace />;
+  } else {
+    return children;
+  }
+}
+
 export {
   ProtectedAuthRoute,
   ProtectedRoute,
-  ProtectedLandingPage
+  ProtectedLandingPage,
+  ProtectedInstitueRoute,
+  ProtectedStudentRoute,
 };

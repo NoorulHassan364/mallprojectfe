@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 import NavBar from '../components/NavBar';
-// import Footer from '../components/Footer';
+import Footer from '../components/Footer';
 import HomePage from '../pages/Home';
 import SignIn from '../pages/SignIn/index';
 import SignUp from '../pages/Signup/index';
@@ -12,8 +12,10 @@ import UserDashboard from '../pages/userDashboard/index';
 // import PastPapers from '../pages/pastPapers/pastPapers';
 // import ScrollToTop from '../components/ScrollToTop';
 // import SideBar from '../components/sideBar/Index';
-import { ProtectedAuthRoute, ProtectedRoute, ProtectedLandingPage } from "./protectedAuthRoutes";
+import { ProtectedAuthRoute, ProtectedRoute, ProtectedLandingPage, ProtectedInstitueRoute, ProtectedStudentRoute, } from "./protectedAuthRoutes";
 import UserDashboardRoutes from './userDahboardRoutes';
+import InstituteRoutes from './institueRoutes';
+import Logout from './../pages/logout/logout';
 export default function AppRoutes() {
 
   return (
@@ -42,6 +44,15 @@ export default function AppRoutes() {
         />
         <Route
           exact
+          path="/logout"
+          element={
+            // <ProtectedAuthRoute>
+            <Logout />
+            // </ProtectedAuthRoute>
+          }
+        />
+        <Route
+          exact
           path="/signup"
           element={
             <ProtectedAuthRoute>
@@ -53,13 +64,23 @@ export default function AppRoutes() {
           exact
           path="/userDashboard/*"
           element={
-            <ProtectedRoute>
+            <ProtectedStudentRoute>
               <UserDashboardRoutes />
-            </ProtectedRoute>
+            </ProtectedStudentRoute>
+          }
+        />
+        <Route
+          exact
+          path="/institute/*"
+          element={
+            <ProtectedInstitueRoute>
+              <InstituteRoutes />
+            </ProtectedInstitueRoute>
           }
         />
 
       </Routes>
+      {/* <Footer /> */}
     </React.Suspense>
   );
 }

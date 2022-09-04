@@ -80,10 +80,15 @@ const NavBar = ({ user }) => {
                                             style={{ fontSize: '1rem', color: "grey", cursor: "pointer", position: "absolute", right: "2%", marginTop: "0.7rem" }}
                                         />
                                     </div>
-                                    <div className='nav_btns'>
-                                        <Button variant="primary" className='nav_btn' onClick={() => onNavChange('signup')}>Sign Up</Button>
-                                        <Button variant="outline-primary" className="nav_btn signin_btn_hover" onClick={() => onNavChange('signIn')} >Log In</Button>
-                                    </div>
+                                    {
+                                        isLogin ?
+                                            null :
+                                            <div className='nav_btns'>
+                                                <Button variant="primary" className='nav_btn' onClick={() => onNavChange('signup')}>Sign Up</Button>
+                                                <Button variant="outline-primary" className="nav_btn signin_btn_hover" onClick={() => onNavChange('signIn')} >Log In</Button>
+                                            </div>
+                                    }
+
                                 </div>
                             </Nav>
                         </Navbar.Collapse>

@@ -52,3 +52,26 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.studnet_signup_card {
+    padding: 8rem;
+    background: url("../../assets//images/fyp_header_img.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // position: relative;
+    opacity: 0.5;
+    border-radius: 0.5rem;
+}
+
+.clg_signup_card {
+    padding: 7rem;
+    background: url("../../assets//images/fyp_header_img.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // position: relative;
+    opacity: 0.5;
+    border-radius: 0.5rem;
+    margin-left: 2rem;
+}

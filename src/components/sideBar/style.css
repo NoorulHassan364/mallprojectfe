@@ -120,3 +120,11 @@ main {
   padding-left: 20px;
   border-bottom: #fff 0.5px solid;
 }
+
+/* Sidebar */
+.sidebar_college {
+  background: black;
+  color: white;
+  min-height: 100vh;
+  /* overflow-y: auto; */
+}
