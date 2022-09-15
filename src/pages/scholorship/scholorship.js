@@ -19,7 +19,7 @@ const Scholorship = () => {
         email: Yup.string().required("required"),
         phone: Yup.string().required("required"),
         adress: Yup.string().required("required"),
-        file: Yup.string(),
+        // file: Yup.string(),
         currentUni: Yup.string(),
     });
 
@@ -70,10 +70,12 @@ const Scholorship = () => {
             name: "Apply",
             // selector: (row) => row.deadline,
             cell: (row, index, column, id) => {
-                return <FontAwesomeIcon style={{ fontSize: "1rem", cursor: "pointer", color: "blue" }} icon={faPaperPlane} onClick={() => {
-                    setselectedItem(row._id)
-                    setscholorshipModal(true)
-                }} />;
+                let user = JSON.parse(localStorage.getItem("user"));
+                return row?.applications?.filter((el) => el?.userId == user?._id).length > 0 ?
+                    <Button disabled>Applied</Button>
+                    :
+                    <Button onClick={() => onscholorshiperSubmit(row?._id)}>Apply</Button>
+                    ;
             },
             sortable: true,
             grow: 2,
@@ -104,12 +106,18 @@ const Scholorship = () => {
         // setSelectPic(true)
     }
 
-    const onscholorshiperSubmit = (values, resetForm) => {
-        debugger;
+    const onscholorshiperSubmit = async (id) => {
+        try {
+            let user = JSON.parse(localStorage.getItem("user"));
+            let res = await api.post(`/scholorship/apply/${id}/${user?._id}`);
+            getScholorships();
+        }
+        catch (err) {
+            console.log(err)
+        }
     }
 
     const onSubmitSearchCollege = (values, resetForm) => {
-        debugger
         if (values?.district == "" && values?.college == "") {
             setScholorships(scholorshipsCopy)
         } else if (values?.district == "" && values?.college !== "") {
@@ -202,7 +210,7 @@ const Scholorship = () => {
                 show={scholorshipModal}
                 onHide={handleScholorshipModalClose}
                 centered
-                size="lg"
+                size="md"
             >
                 <Modal.Header closeButton>
                     <Modal.Title>
@@ -214,20 +222,20 @@ const Scholorship = () => {
                         onSubmit={(values, { resetForm }) => {
                             onscholorshiperSubmit(values, resetForm)
                         }}
-                        validationSchema={validSchema}
+                        // validationSchema={validSchema}
                         enableReinitialize
-                        initialValues={{
-                            name: '',
-                            email: '',
-                            phone: '',
-                            adress: '',
-                            file: '',
-                            currentUni: ''
-                        }}
+                    // initialValues={{
+                    //     name: '',
+                    //     email: '',
+                    //     phone: '',
+                    //     adress: '',
+                    //     // file: '',
+                    //     currentUni: ''
+                    // }}
                     >
                         {(formik) => (
                             <Form onSubmit={formik.handleSubmit} id="scholorshiperro">
-                                <Form.Row>
+                                {/* <Form.Row>
                                     <Form.Group controlId="name" as={Col} hasValidation>
                                         <Form.Label className="form__label">name</Form.Label>
                                         <Form.Control
@@ -301,10 +309,10 @@ const Scholorship = () => {
                                             {formik.errors.adress}
                                         </Form.Control.Feedback>
                                     </Form.Group>
-                                </Form.Row>
+                                </Form.Row> */}
 
                                 <Form.Row>
-                                    <Form.Group controlId="currentUni" as={Col} hasValidation>
+                                    {/* <Form.Group controlId="currentUni" as={Col} hasValidation>
                                         <Form.Label className="form__label">currentUni</Form.Label>
                                         <Form.Control
                                             className="p-3 rounded-0"
@@ -320,10 +328,10 @@ const Scholorship = () => {
                                         <Form.Control.Feedback type="invalid">
                                             {formik.errors.currentUni}
                                         </Form.Control.Feedback>
-                                    </Form.Group>
+                                    </Form.Group> */}
 
                                     <Form.Group controlId="file" as={Col} hasValidation>
-                                        <Form.Label className="form__label">file</Form.Label>
+                                        <Form.Label className="form__label">CV</Form.Label>
                                         <Form.Control
                                             className="rounded-0"
                                             type="file"
@@ -331,9 +339,6 @@ const Scholorship = () => {
                                             // value={formik.values.photo}
                                             onChange={e => handleFormikFileChange(e, formik)}
                                         />
-                                        <Form.Control.Feedback type="invalid">
-                                            {formik.errors.file}
-                                        </Form.Control.Feedback>
                                     </Form.Group>
                                 </Form.Row>
                             </Form>

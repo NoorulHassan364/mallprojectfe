@@ -20,6 +20,7 @@ const InstituteProfile = () => {
         totalStudents: Yup.string().required("required"),
         totalTeachers: Yup.string().required("required"),
         location: Yup.string().required("required"),
+        admissionFee: Yup.string().required("required"),
         // programs: Yup.string().required("required"),
         phone: Yup.string().required("required"),
         // image: Yup.string().required("required"),
@@ -108,6 +109,7 @@ const InstituteProfile = () => {
                         underGraduates: collegeProfile?.graduates,
                         totalStudents: collegeProfile?.totalStudents,
                         totalTeachers: collegeProfile?.totalTeachers,
+                        admissionFee: collegeProfile?.admissionFee,
                         location: collegeProfile?.location,
                         programs: collegeProfile?.programs,
                         phone: collegeProfile?.phone,
@@ -287,6 +289,28 @@ const InstituteProfile = () => {
                                     </Form.Control.Feedback>
                                 </Form.Group>
 
+                                <Form.Group controlId="admissionFee" as={Col} hasValidation>
+                                    <Form.Label className="form__label">Admission Fee</Form.Label>
+                                    <Form.Control
+                                        className="p-3 rounded-0"
+                                        type="text"
+                                        name="admissionFee"
+                                        placeholder="College/Uni admissionFee"
+                                        value={formik.values.admissionFee}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        isValid={formik.touched.admissionFee && !formik.errors.admissionFee}
+                                        isInvalid={formik.touched.admissionFee && formik.errors.admissionFee}
+                                    />
+                                    <Form.Control.Feedback type="invalid">
+                                        {formik.errors.admissionFee}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+
+
+                            </Form.Row>
+
+                            <Form.Row>
                                 <Form.Group controlId="prospectus" as={Col} hasValidation>
                                     <Form.Label className="form__label">Prospectus</Form.Label>
                                     <Form.Control
@@ -302,9 +326,6 @@ const InstituteProfile = () => {
                                             <a href={collegeProfile?.prospectus}>Download</a> : null
                                     }
                                 </Form.Group>
-                            </Form.Row>
-
-                            <Form.Row>
                                 <Form.Group controlId="image" as={Col} hasValidation>
                                     <Form.Label className="form__label">Image</Form.Label>
                                     <Form.Control

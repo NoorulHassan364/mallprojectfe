@@ -3,7 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import SideBar from '../components/sideBar/Index';
 import CollegeDetail from "../pages/collegeDetail/collegeDetail";
 import MyCollegeList from "../pages/myCollegeList/myCollegeList";
+import PersonalInfo from "../pages/personalInfo/personalInfo";
 import Scholorship from "../pages/scholorship/scholorship";
+import ApplicationForm from "../pages/applicationForm/applicationForm";
 
 const UserDashboard = lazy(() => import("../pages/userDashboard/index"));
 const Colleges = lazy(() => import("../pages/colleges/colleges"));
@@ -18,6 +20,8 @@ const UserDashboardRoutes = () => {
                     <Route exact path="/colleges/detail/:collegeId" element={<CollegeDetail />} />
                     <Route exact path="/myCollegeList" element={<MyCollegeList />} />
                     <Route exact path="/scholorships" element={<Scholorship />} />
+                    <Route exact path="/personal" element={<PersonalInfo />} />
+                    <Route exact path="/admissionForm/:collegeId" element={<ApplicationForm />} />
                 </Routes>
             </SideBar>
         </React.Suspense>

@@ -139,7 +139,6 @@ const Colleges = () => {
                 {
                     colleges?.map((el) => {
                         return (
-
                             <div style={{ position: "relative", display: "flex" }} onClick={(e) => {
                                 navigate(`/userDashboard/colleges/detail/${el?._id}`)
                             }} >
@@ -166,9 +165,11 @@ const Colleges = () => {
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>
-                                <div className='collegeFavourite'>
+                                <div className='collegeFavourite'
+                                    style={{ cursor: "pointer" }}
+                                    onClick={(e) => handleFavourite(el._id, e)}
+                                >
                                     <FontAwesomeIcon
-                                        onClick={(e) => handleFavourite(el._id, e)}
                                         icon={faHeart}
                                         style={{ color: favColleges?.find((clg) => clg._id == el._id) ? "#ea657c" : "grey", cursor: "pointer" }}
                                     />

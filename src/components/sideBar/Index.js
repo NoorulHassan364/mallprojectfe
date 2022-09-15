@@ -48,7 +48,7 @@ const routes = [
     icon: <FontAwesomeIcon icon={faTicket} />
   },
   {
-    path: "/userDashboard/colleges34",
+    path: "/userDashboard/personal",
     name: "Personal Info",
     icon: <FontAwesomeIcon icon={faUser} />
   },
@@ -78,6 +78,11 @@ const institueRoutes = [
     path: "/institute/scholorships",
     name: "Shcolorships",
     icon: <FontAwesomeIcon icon={faBuildingColumns} />
+  },
+  {
+    path: "/institute/personal",
+    name: "Personal Info",
+    icon: <FontAwesomeIcon icon={faUser} />
   },
   {
     path: "/logout",

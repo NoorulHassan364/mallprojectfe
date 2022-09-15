@@ -10,6 +10,7 @@ import api from '../../../api';
 const InstituteScholorships = () => {
     const [scholorships, setScholorships] = useState([]);
     const [scholorshipModal, setscholorshipModal] = useState(false);
+    const [applicantModal, setApplicantModal] = useState(false);
     const [selectedItem, setselectedItem] = useState(null);
 
 
@@ -77,10 +78,37 @@ const InstituteScholorships = () => {
             // selector: (row) => row.deadline,
             cell: (row, index, column, id) => {
                 return <FontAwesomeIcon style={{ fontSize: "1rem", cursor: "pointer", color: "blue" }} icon={faEye} onClick={() => {
-                    setselectedItem(row._id)
-                    setscholorshipModal(true)
+                    setselectedItem(row)
+                    setApplicantModal(true)
                 }} />;
             },
+            sortable: true,
+            grow: 2,
+        },
+    ];
+
+    const applicantColumns = [
+        {
+            name: "Name",
+            selector: (row) => row.name,
+            sortable: true,
+            grow: 2,
+        },
+        {
+            name: "Phone",
+            selector: (row) => row.phone,
+            sortable: true,
+            grow: 2,
+        },
+        {
+            name: "email",
+            selector: (row) => row.email,
+            sortable: true,
+            grow: 2,
+        },
+        {
+            name: "address",
+            selector: (row) => row.address,
             sortable: true,
             grow: 2,
         },
@@ -177,12 +205,12 @@ const InstituteScholorships = () => {
                         validationSchema={validSchema}
                         enableReinitialize
                         initialValues={{
-                            name: selectedItem?.name,
-                            price: selectedItem?.price,
-                            location: selectedItem?.location,
-                            minimumGpa: selectedItem?.minimumGpa,
-                            degree: selectedItem?.degree,
-                            deadline: selectedItem?.deadline
+                            name: "",
+                            price: "",
+                            location: "",
+                            minimumGpa: "",
+                            degree: "",
+                            deadline: ""
                         }}
                     >
                         {(formik) => (
@@ -308,6 +336,31 @@ const InstituteScholorships = () => {
                         Submit
                     </Button>
                 </Modal.Footer>
+            </Modal>
+
+            <Modal
+                show={applicantModal}
+                onHide={() => setApplicantModal(false)}
+                centered
+                size="lg"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        Applicants
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <DataTable
+                        data={selectedItem?.applications}
+                        columns={applicantColumns}
+                        highlightOnHover
+                        responsive
+                        pagination
+                        paginationPerPage={20}
+                        paginationRowsPerPageOptions={[20, 25, 50, 100]}
+                    />
+                </Modal.Body>
+
             </Modal>
         </div>
     )

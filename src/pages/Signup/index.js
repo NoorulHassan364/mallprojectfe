@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import api from '../../api';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/auth';
+import college_art from "../../assets/images/college_art.jpg"
 
 
 const Index = () => {
@@ -43,6 +44,9 @@ const Index = () => {
         resetForm()
     }
 
+    useEffect(() => {
+        setType(null);
+    }, [])
     return (
         <>
 
@@ -52,8 +56,12 @@ const Index = () => {
                         <Container>
                             <Row style={{ padding: '3rem' }}>
                                 <Col md={6} sm={12}>
-                                    <h6 className='text-center signup_heading1'>Find Colleges and Scholorships that <br />are right fit for you!</h6>
-                                    <img className='img-fluid' src="https://new.cappex.com/static/media/desktop-main-reg-illustration.96fbcca8.svg" alt="" />
+                                    {type == 'college' ?
+                                        <h6 className='text-center signup_heading1'>College recruitment is changing fast. <br /> Cappex can help you stay ahead of the curve.</h6> :
+                                        <h6 className='text-center signup_heading1'>Find Colleges and Scholorships that <br />are right fit for you!</h6>
+
+                                    }
+                                    <img className='img-fluid' src={type == "college" ? college_art : 'https://new.cappex.com/static/media/desktop-main-reg-illustration.96fbcca8.svg'} alt="" />
                                 </Col>
 
                                 <Col md={6} sm={12}>
@@ -226,11 +234,11 @@ const Index = () => {
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%", backgroundColor: "#fdf7f1" }}>
                             <div style={{ display: "flex", justifyContent: "center" }}>
                                 <div className='studnet_signup_card'>
-                                    <Button onClick={() => setType("student")}>Student</Button>
+                                    <Button className='signup_card_btns' onClick={() => setType("student")}>Student</Button>
                                 </div>
 
                                 <div className='clg_signup_card'>
-                                    <Button onClick={() => setType("college")}>College/Uni</Button>
+                                    <Button className='signup_card_btns' onClick={() => setType("college")}>College/Uni</Button>
                                 </div>
 
                             </div>
