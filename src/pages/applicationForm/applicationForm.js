@@ -6,6 +6,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { loadStripe } from "@stripe/stripe-js";
 
 const ApplicationForm = () => {
     const { collegeId } = useParams();
@@ -40,13 +41,21 @@ const ApplicationForm = () => {
 
     const onSubmitAdmission = async (values) => {
         debugger;
-        // try {
-        //     let res = await api.get(`/college/${collegeId}`);
-        //     setCollege(res.data.data)
-        // }
-        // catch (err) {
-        //     console.log(err)
-        // }
+        try {
+            let user = JSON.parse(localStorage.getItem("user"))._id;
+            const session = await api.post(`/admission/checkout-session/${collegeId}/${user}`);
+            console.log("session", session);
+            const stripePromise = loadStripe(
+                "pk_test_51LjOurH1uE3Pyj5r2rWw7W5rNMExIlJP15fbAMOB02EdkqqXyTqTkD6wx1WP73BCCbfIcPgqud0Cj9VfL1fy917N00owLZAUUJ"
+            );
+            const stripe = await stripePromise;
+            await stripe.redirectToCheckout({
+                sessionId: session.data.session.id
+            })
+        }
+        catch (err) {
+            console.log(err)
+        }
     };
 
     const handleFormikFileChange = (e, formik, type) => {
@@ -299,8 +308,8 @@ const ApplicationForm = () => {
                                         <Form.Control
                                             className="p-3 rounded-0 mt-3"
                                             type="text"
-                                            name="secondarySchool1"
-                                            placeholder="secondarySchool1"
+                                            name="secondarySchool2"
+                                            placeholder="secondarySchool2"
                                             value={formik.values.secondarySchool2}
                                             onChange={formik.handleChange}
                                         />
