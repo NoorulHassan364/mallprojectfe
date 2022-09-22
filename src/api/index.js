@@ -2,9 +2,9 @@ import axios from "axios";
 
 const api = axios.create({
   // baseURL: process.env.REACT_APP_BACKEND_URL,
-  // baseURL: 'https://admissionbe.herokuapp.com/api/v1',
+  baseURL: 'https://admissionbe.herokuapp.com/api/v1',
 
-  baseURL: `http://${window.location.hostname}:8000/api/v1/`,
+  // baseURL: `http://${window.location.hostname}:8000/api/v1/`,
   // baseURL: 'http://localhost:5000/api/v1',
 });
 
