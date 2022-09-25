@@ -6,15 +6,20 @@ import highSchoolStdent from "../../assets/images/high-school-student.png";
 import transferStdent from "../../assets/images/transfer-students.png";
 import collegeList from "../../assets/images/list-img.png";
 import scholorshipImg from "../../assets/images/scholarships-img.png";
+import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
+    const navigate = useNavigate()
+    const handleGetStarted = () => {
+        navigate('/signup')
+    }
     return (
         <div>
             <div className='section_header'>
                 <div className='header_text'>
                     <h1 className='header_h1'>Every College. Every <br /> Scholarship.</h1>
                     <p style={{ marginTop: '3rem' }}><strong>Research schools, get scholarships, and understand where you fit — at any <br /> stage of your college journey.</strong></p>
-                    <Button className='header_getStartedBtn'> Get Started</Button>
+                    <Button className='header_getStartedBtn' onClick={() => handleGetStarted()}> Get Started</Button>
                 </div>
             </div>
 
@@ -56,7 +61,9 @@ const HomePage = () => {
                     <h3>Find schools that match your style
                     </h3>
                     <p>Even in uncertain times, we’ll help you discover colleges that match what’s most important to you — your budget, your majors, your style.</p>
-                </div>
+                </div>import {useNavigate} from 'react-router-dom';
+                import {useNavigate} from 'react-router-dom';
+
             </div>
 
             <div className="section_collegeList">
@@ -84,7 +91,7 @@ const HomePage = () => {
 
             <div className="section_college_Search">
                 <h4>Find the right college for you.</h4>
-                <Button className='header_getStartedBtn'> Get Started</Button>
+                <Button className='header_getStartedBtn' onClick={() => handleGetStarted()}> Get Started</Button>
             </div>
         </div>
     );

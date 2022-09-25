@@ -38,7 +38,7 @@ const NavBar = ({ user }) => {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav style={{ width: "100%" }}>
-                                <div style={{ display: 'flex', marginLeft: '0rem' }}>
+                                {/* <div style={{ display: 'flex', marginLeft: '0rem' }}>
                                     <Nav.Link
                                         className={activeTab == 'colleges' ? 'nav_link active_nav_link' : 'nav_link'}
                                         onClick={() => onNavChange('colleges')}
@@ -59,7 +59,7 @@ const NavBar = ({ user }) => {
                                     >
                                         Past Papers
                                     </Nav.Link>
-                                </div>
+                                </div> */}
 
                                 <div className="nav_right">
                                     {/* <FontAwesomeIcon

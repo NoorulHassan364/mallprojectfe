@@ -205,12 +205,12 @@ const InstituteScholorships = () => {
                         validationSchema={validSchema}
                         enableReinitialize
                         initialValues={{
-                            name: "",
-                            price: "",
-                            location: "",
-                            minimumGpa: "",
-                            degree: "",
-                            deadline: ""
+                            name: selectedItem?.name,
+                            price: selectedItem?.price,
+                            location: selectedItem?.location,
+                            minimumGpa: selectedItem?.minimumGpa,
+                            degree: selectedItem?.degree,
+                            deadline: selectedItem?.deadline
                         }}
                     >
                         {(formik) => (

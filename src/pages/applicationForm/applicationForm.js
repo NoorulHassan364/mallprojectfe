@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import api from '../../api';
-import { Row, Col, Form, Container, Button, Alert, Tabs, Tab } from 'react-bootstrap';
+import { Row, Col, Form, Container, Button, Alert, Tabs, Tab, Spinner } from 'react-bootstrap';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
@@ -12,6 +12,7 @@ const ApplicationForm = () => {
     const { collegeId } = useParams();
     const [college, setCollege] = useState(null);
     const [documents, setDocuments] = useState(null);
+    const [loading, setLoading] = useState(null);
 
     const validSchema = Yup.object().shape({
         firstName: Yup.string().required("required"),
@@ -42,18 +43,22 @@ const ApplicationForm = () => {
     const onSubmitAdmission = async (values) => {
         debugger;
         try {
+            setLoading(true);
             let user = JSON.parse(localStorage.getItem("user"))._id;
             const session = await api.post(`/admission/checkout-session/${collegeId}/${user}`);
             console.log("session", session);
             const stripePromise = loadStripe(
                 "pk_test_51LjOurH1uE3Pyj5r2rWw7W5rNMExIlJP15fbAMOB02EdkqqXyTqTkD6wx1WP73BCCbfIcPgqud0Cj9VfL1fy917N00owLZAUUJ"
             );
+
             const stripe = await stripePromise;
             await stripe.redirectToCheckout({
                 sessionId: session.data.session.id
             })
+            setLoading(false);
         }
         catch (err) {
+            setLoading(false);
             console.log(err)
         }
     };
@@ -427,9 +432,18 @@ const ApplicationForm = () => {
                                 </Form.Group>
                             </Form.Row>
 
-                            <Button className="button  button btn-block rounded-0" type="submit" form="user-register" style={{ width: "10rem", }}>
-                                Submit
-                            </Button>
+                            {
+                                loading ?
+                                    <Button className="button  button btn-block rounded-0" type="submit" form="user-register" style={{ width: "10rem", }}>
+                                        Submit  <Spinner animation="border" size="sm" />
+                                    </Button>
+
+                                    :
+                                    <Button className="button  button btn-block rounded-0" type="submit" form="user-register" style={{ width: "10rem", }}>
+                                        Submit
+                                    </Button>
+                            }
+
                         </Form>
                     )}
                 </Formik>
