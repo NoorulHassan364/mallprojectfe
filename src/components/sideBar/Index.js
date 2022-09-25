@@ -38,12 +38,12 @@ const routes = [
     icon: <FontAwesomeIcon icon={faGraduationCap} />
   },
   {
-    path: "/userDashboard/colleges34",
+    path: "/userDashboard/pastPapers",
     name: "Past Papers",
     icon: <FontAwesomeIcon icon={faPaperPlane} />
   },
   {
-    path: "/userDashboard/colleges34",
+    path: "/userDashboard/admissions",
     name: "Apply for Admission",
     icon: <FontAwesomeIcon icon={faTicket} />
   },
@@ -77,6 +77,16 @@ const institueRoutes = [
   {
     path: "/institute/scholorships",
     name: "Shcolorships",
+    icon: <FontAwesomeIcon icon={faBuildingColumns} />
+  },
+  {
+    path: "/institute/applications",
+    name: "Applications",
+    icon: <FontAwesomeIcon icon={faBuildingColumns} />
+  },
+  {
+    path: "/institute/pastPapers",
+    name: "Past Papers",
     icon: <FontAwesomeIcon icon={faBuildingColumns} />
   },
   {

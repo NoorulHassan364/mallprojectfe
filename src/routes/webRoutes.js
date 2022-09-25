@@ -16,6 +16,7 @@ import { ProtectedAuthRoute, ProtectedRoute, ProtectedLandingPage, ProtectedInst
 import UserDashboardRoutes from './userDahboardRoutes';
 import InstituteRoutes from './institueRoutes';
 import Logout from './../pages/logout/logout';
+import AboutUs from '../pages/aboutUs/aboutUs';
 export default function AppRoutes() {
 
   return (
@@ -30,7 +31,16 @@ export default function AppRoutes() {
           element={
             <ProtectedLandingPage>
               <HomePage />
-            // </ProtectedLandingPage>
+            </ProtectedLandingPage>
+          }
+        />
+        <Route
+          exact
+          path="/aboutUs"
+          element={
+            <ProtectedLandingPage>
+              <AboutUs />
+            </ProtectedLandingPage>
           }
         />
         <Route

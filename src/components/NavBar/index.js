@@ -38,28 +38,14 @@ const NavBar = ({ user }) => {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav style={{ width: "100%" }}>
-                                {/* <div style={{ display: 'flex', marginLeft: '0rem' }}>
+                                <div style={{ display: 'flex', marginLeft: '0rem' }}>
                                     <Nav.Link
-                                        className={activeTab == 'colleges' ? 'nav_link active_nav_link' : 'nav_link'}
-                                        onClick={() => onNavChange('colleges')}
+                                        className={activeTab == 'aboutUs' ? 'nav_link active_nav_link' : 'nav_link'}
+                                        onClick={() => onNavChange('aboutUs')}
                                     >
-                                        Colleges
+                                        About Us
                                     </Nav.Link>
-
-                                    <Nav.Link
-                                        className={activeTab == 'scholorships' ? 'nav_link active_nav_link' : 'nav_link'}
-                                        onClick={() => onNavChange('scholorships')}
-                                    >
-                                        Scholorships
-                                    </Nav.Link>
-
-                                    <Nav.Link
-                                        className={activeTab == 'pastPapers' ? 'nav_link active_nav_link' : 'nav_link'}
-                                        onClick={() => onNavChange('pastPapers')}
-                                    >
-                                        Past Papers
-                                    </Nav.Link>
-                                </div> */}
+                                </div>
 
                                 <div className="nav_right">
                                     {/* <FontAwesomeIcon

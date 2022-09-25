@@ -16,6 +16,7 @@ import {
 const CollegeDetail = () => {
     const { collegeId } = useParams();
     const [college, setCollege] = useState(null);
+    const [admissions, setAdmissions] = useState(null);
 
     const navigate = useNavigate();
     const getCollege = async (values) => {
@@ -27,8 +28,32 @@ const CollegeDetail = () => {
             console.log(err)
         }
     };
+    const getAdmissions = async () => {
+        try {
+            let user = JSON.parse(localStorage.getItem("user"));
+            let res = await api.get(`/admission/${user?._id}`);
+            setAdmissions(res.data.data)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+    const handleViewApplication = async () => {
+        try {
+            debugger;
+            let user = JSON.parse(localStorage.getItem("user"));
+            let admission = admissions?.filter(el => el?.userId == user?._id && el?.collegeId?._id == collegeId);
+            navigate(`/userDashboard/admissionDetail/${admission[0]?._id}`)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
     useEffect(() => {
         getCollege();
+        getAdmissions();
     }, [collegeId])
     return (
         <div>
@@ -124,7 +149,12 @@ const CollegeDetail = () => {
                         <span style={{ fontWeight: "bold", marginLeft: "1rem" }}>Rs.{college?.admissionFee}</span>
                         <br />
                         <div style={{ width: "8rem", margin: "auto" }}>
-                            <Button style={{ marginTop: "3rem", marginBottom: "4rem" }} onClick={() => navigate(`/userDashboard/admissionForm/${college?._id}`)}>Apply Now</Button>
+                            {
+                                admissions?.filter(el => el?.collegeId?._id == college?._id)?.length > 0 ?
+                                    <Button style={{ marginTop: "3rem", marginBottom: "4rem" }} onClick={() => handleViewApplication()}>View Application</Button> :
+                                    <Button style={{ marginTop: "3rem", marginBottom: "4rem" }} onClick={() => navigate(`/userDashboard/admissionForm/${college?._id}`)}>Apply Now</Button>
+                            }
+
                         </div>
                     </Tab>
                 </Tabs>
