@@ -45,7 +45,7 @@ const ApplicationForm = () => {
         try {
             setLoading(true);
             let user = JSON.parse(localStorage.getItem("user"))._id;
-            const session = await api.post(`/admission/checkout-session/${collegeId}/${user}`);
+            const session = await api.post(`/admission/checkout-session/${collegeId}/${user}`, values);
             console.log("session", session);
             const stripePromise = loadStripe(
                 "pk_test_51LjOurH1uE3Pyj5r2rWw7W5rNMExIlJP15fbAMOB02EdkqqXyTqTkD6wx1WP73BCCbfIcPgqud0Cj9VfL1fy917N00owLZAUUJ"
