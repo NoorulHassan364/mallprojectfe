@@ -100,7 +100,7 @@ const ApplicationForm = () => {
                     }}
                 >
                     {(formik) => (
-                        <Form onSubmit={formik.handleSubmit} id="user-register" style={{ width: "74%", margin: "auto" }}>
+                        <Form onSubmit={formik.handleSubmit} id="user-register" className='applicationForm'>
                             <h5 className='mb-2' style={{ backgroundColor: "#edeaea", padding: "0.5rem" }}>Personal Information</h5>
                             <Form.Row >
                                 <Form.Group controlId="firstName" as={Col} hasValidation>

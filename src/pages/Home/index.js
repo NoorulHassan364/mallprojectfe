@@ -7,6 +7,7 @@ import transferStdent from "../../assets/images/transfer-students.png";
 import collegeList from "../../assets/images/list-img.png";
 import scholorshipImg from "../../assets/images/scholarships-img.png";
 import { useNavigate } from 'react-router-dom';
+import Footer from '../../components/Footer'
 
 const HomePage = () => {
     const navigate = useNavigate()
@@ -92,6 +93,7 @@ const HomePage = () => {
                 <h4>Find the right college for you.</h4>
                 <Button className='header_getStartedBtn' onClick={() => handleGetStarted()}> Get Started</Button>
             </div>
+            <Footer />
         </div>
     );
 }

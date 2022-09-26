@@ -54,10 +54,10 @@ const Index = () => {
                 type ?
                     <section className="section-signin">
                         <Container>
-                            <Row style={{ padding: '3rem' }}>
+                            <Row className='signup_form1'>
                                 <Col md={6} sm={12}>
                                     {type == 'college' ?
-                                        <h6 className='text-center signup_heading1'>College recruitment is changing fast. <br /> Cappex can help you stay ahead of the curve.</h6> :
+                                        <h6 className='text-center signup_heading1'>College recruitment is changing fast. <br /> College Insight can help you stay ahead of the curve.</h6> :
                                         <h6 className='text-center signup_heading1'>Find Colleges and Scholorships that <br />are right fit for you!</h6>
 
                                     }
@@ -231,8 +231,8 @@ const Index = () => {
                     </section>
                     :
                     <>
-                        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%", backgroundColor: "#fdf7f1" }}>
-                            <div style={{ display: "flex", justifyContent: "center" }}>
+                        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%", }}>
+                            <div className='main_signupcards'>
                                 <div className='studnet_signup_card'>
                                     <Button className='signup_card_btns' onClick={() => setType("student")}>Student</Button>
                                 </div>

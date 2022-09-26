@@ -71,7 +71,7 @@ const Index = () => {
                     <Col md={6} sm={12} className='signin_col1'>
                         <h6 className='text-center sigin_heading1'>Welcome Back</h6>
                         <br />
-                        <p className='sigin_heading2'>Let’s face it, college is a big deal. From <br /> applications to stepping on campus, Cappex <br /> has your back every step of the way.</p>
+                        <p className='sigin_heading2'>Let’s face it, college is a big deal. From <br /> applications to stepping on campus, College Insight <br /> has your back every step of the way.</p>
                     </Col>
 
                     <Col md={6} sm={12}>

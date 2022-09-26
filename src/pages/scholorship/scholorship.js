@@ -139,59 +139,7 @@ const Scholorship = () => {
         <div className='container-fluid shadow college_container' >
             <div style={{ display: "flex", alignItems: "center" }}>
                 <h4 style={{ color: "grey" }}>Scholorships</h4>
-                <Formik
-                    onSubmit={(values, { resetForm }) => onSubmitSearchCollege(values, resetForm)}
-                    // validationSchema={validSchema}
-                    enableReinitialize
-                    initialValues={{
-                        district: '',
-                        college: '',
-                    }}
-                >
-                    {(formik) => (
-                        <Form onSubmit={formik.handleSubmit} id="college-search" style={{ display: "flex", marginLeft: "auto", padding: "1rem", alignItems: "center" }}>
-                            <Form.Row>
-                                <Form.Group controlId="district" as={Col} hasValidation
-                                    style={{ marginBottom: "0rem" }}
-                                >
-                                    <Form.Control
-                                        className="rounded-0"
-                                        as="select"
-                                        name="district"
-                                        style={{ width: "14rem", marginBottom: "0rem", height: "3rem" }}
-                                        placeholder="Enter district"
-                                        value={formik.values.district}
-                                        onChange={(e) => formik.handleChange(e)}
-                                        custom
-                                    >
-                                        <option value="" disabled>Disctrict</option>
-                                        {/* <option value="all">All</option> */}
-                                        <option value="Lahore">Lahore</option>
-                                        <option value="karachi">Karachi</option>
-                                        <option value="Islamabad">Islamabad</option>
-                                        <option value="peshawar">Peshawar</option>
-                                    </Form.Control>
 
-                                </Form.Group>
-
-                                <Form.Group controlId="college" as={Col} style={{ marginBottom: "0rem" }} hasValidation>
-                                    <Form.Control
-                                        className="p-3 rounded-0"
-                                        type="text"
-                                        name="college"
-                                        style={{ width: "14rem", marginBottom: "0rem", height: "3rem" }}
-                                        placeholder="College Name"
-                                        value={formik.values.college}
-                                        onChange={formik.handleChange}
-                                    />
-                                </Form.Group>
-                            </Form.Row>
-                            <Button className="button  button btn-block rounded-0" type="submit" form="college-search" style={{ height: "fit-content", width: "14rem", marginLeft: "1rem" }} >
-                                Search
-                            </Button>
-                        </Form>
-                    )}
-                </Formik>
             </div>
             <hr />
             <div>

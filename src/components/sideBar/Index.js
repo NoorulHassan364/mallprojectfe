@@ -7,6 +7,7 @@ import SidebarMenu from "./Sidebar";
 import {
   faArrowRightFromBracket,
   faBars,
+  faBarsProgress,
   faBuildingColumns,
   faGraduationCap,
   faList,
@@ -72,22 +73,22 @@ const institueRoutes = [
   {
     path: "/institute/programs",
     name: "Programs",
-    icon: <FontAwesomeIcon icon={faBuildingColumns} />
+    icon: <FontAwesomeIcon icon={faBarsProgress} />
   },
   {
     path: "/institute/scholorships",
     name: "Shcolorships",
-    icon: <FontAwesomeIcon icon={faBuildingColumns} />
+    icon: <FontAwesomeIcon icon={faGraduationCap} />
   },
   {
     path: "/institute/applications",
     name: "Applications",
-    icon: <FontAwesomeIcon icon={faBuildingColumns} />
+    icon: <FontAwesomeIcon icon={faTicket} />
   },
   {
     path: "/institute/pastPapers",
     name: "Past Papers",
-    icon: <FontAwesomeIcon icon={faBuildingColumns} />
+    icon: <FontAwesomeIcon icon={faPaperPlane} />
   },
   {
     path: "/institute/personal",

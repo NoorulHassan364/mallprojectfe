@@ -28,7 +28,7 @@ const ContactUs = () => {
     }
 
     return (
-        <div style={{ width: '50%', margin: 'auto', padding: '1rem', marginTop: '2rem' }} className='shadow'>
+        <div style={{}} className='shadow contact_page'>
             <h4 style={{ marginBottom: '1rem' }}>Get in Touch!</h4>
             <Formik
                 onSubmit={(values, { resetForm }) => {

@@ -80,3 +80,87 @@
     background-color: crimson;
     width: 10rem;
 }
+
+.main_signupcards {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.signup_form1 {
+    padding: 3rem;
+}
+@media (max-width: 450px) {
+    .signup_form1 {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .main_signupcards {
+        flex-direction: column;
+    }
+    .clg_signup_card {
+        margin-top: 2rem;
+    }
+}
+@media (max-width: 900px) {
+    .clg_signup_card {
+        padding: 4rem;
+    }
+    .studnet_signup_card {
+        padding: 4rem;
+    }
+}
+@media (max-width: 450px) {
+    .clg_signup_card {
+        padding: 2rem;
+    }
+    .studnet_signup_card {
+        padding: 2rem;
+    }
+}
+.contact_page {
+    width: 50%;
+    margin: auto;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+@media (max-width: 775px) {
+    .contact_page {
+        width: 75%;
+    }
+}
+@media (max-width: 530px) {
+    .contact_page {
+        width: 95%;
+    }
+}
+.aboutUs {
+    width: 45%;
+    margin: auto;
+    text-align: center;
+    padding: 2rem;
+}
+@media (max-width: 900px) {
+    .aboutUs {
+        width: 83%;
+    }
+}
+.applicationForm {
+    width: 74%;
+    margin: auto;
+}
+@media (max-width: 650px) {
+    .applicationForm {
+        width: 100%;
+    }
+}
+.personalInfo {
+    width: 45rem;
+}
+@media (max-width: 400px) {
+    .personalInfo {
+        width: 20rem;
+    }
+}

@@ -88,7 +88,7 @@ const PersonalInfo = () => {
                         }}
                     >
                         {(formik) => (
-                            <Form onSubmit={formik.handleSubmit} id="user-register" style={{ width: "45rem" }}>
+                            <Form onSubmit={formik.handleSubmit} id="user-register" className='personalInfo'>
                                 <Form.Row >
                                     <Form.Group controlId="firstName" as={Col} hasValidation>
                                         <Form.Label className="form__label">First Name</Form.Label>
