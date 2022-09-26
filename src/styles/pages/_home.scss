@@ -82,3 +82,27 @@
         flex-direction: column;
     }
 }
+@media (max-width: 450px) {
+    .header_h1 {
+        font-weight: normal;
+    }
+}
+
+@media (max-width: 570px) {
+    .section_findSchools {
+        padding: 0px;
+        width: auto;
+    }
+    .section_findSchools_img {
+        width: auto;
+    }
+    .section_findSchools_txt {
+        width: auto;
+    }
+    .section_collegeList {
+        width: auto;
+    }
+    .section_findSchools_txt {
+        width: auto;
+    }
+}

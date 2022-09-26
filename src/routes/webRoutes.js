@@ -17,6 +17,7 @@ import UserDashboardRoutes from './userDahboardRoutes';
 import InstituteRoutes from './institueRoutes';
 import Logout from './../pages/logout/logout';
 import AboutUs from '../pages/aboutUs/aboutUs';
+import ContactUs from '../pages/contactUs/contactUs';
 export default function AppRoutes() {
 
   return (
@@ -40,6 +41,15 @@ export default function AppRoutes() {
           element={
             <ProtectedLandingPage>
               <AboutUs />
+            </ProtectedLandingPage>
+          }
+        />
+        <Route
+          exact
+          path="/contactUs"
+          element={
+            <ProtectedLandingPage>
+              <ContactUs />
             </ProtectedLandingPage>
           }
         />

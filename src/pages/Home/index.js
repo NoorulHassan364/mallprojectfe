@@ -61,8 +61,7 @@ const HomePage = () => {
                     <h3>Find schools that match your style
                     </h3>
                     <p>Even in uncertain times, we’ll help you discover colleges that match what’s most important to you — your budget, your majors, your style.</p>
-                </div>import {useNavigate} from 'react-router-dom';
-                import {useNavigate} from 'react-router-dom';
+                </div>
 
             </div>
 

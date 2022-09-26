@@ -43,7 +43,13 @@ const NavBar = ({ user }) => {
                                         className={activeTab == 'aboutUs' ? 'nav_link active_nav_link' : 'nav_link'}
                                         onClick={() => onNavChange('aboutUs')}
                                     >
-                                        About Us
+                                        About US
+                                    </Nav.Link>
+                                    <Nav.Link
+                                        className={activeTab == 'contactUs' ? 'nav_link active_nav_link' : 'nav_link'}
+                                        onClick={() => onNavChange('contactUs')}
+                                    >
+                                        Contact US
                                     </Nav.Link>
                                 </div>
 
@@ -52,7 +58,7 @@ const NavBar = ({ user }) => {
                             icon={faMagnifyingGlass}
                             style={{ fontSize: '1.4rem', color: "grey" }}
                         /> */}
-                                    <div style={{ position: "relative", display: "flex" }}>
+                                    {/* <div style={{ position: "relative", display: "flex" }}>
                                         <Form.Control
                                             className="nav_searchBar"
                                             type="text"
@@ -65,7 +71,7 @@ const NavBar = ({ user }) => {
                                             icon={faMagnifyingGlass}
                                             style={{ fontSize: '1rem', color: "grey", cursor: "pointer", position: "absolute", right: "2%", marginTop: "0.7rem" }}
                                         />
-                                    </div>
+                                    </div> */}
                                     {
                                         isLogin ?
                                             null :
