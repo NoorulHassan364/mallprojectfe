@@ -21,31 +21,31 @@ const ApplyForAdmission = () => {
     const columns = [
         {
             name: "College",
-            selector: (row) => row.collegeId.name,
+            selector: (row) => row.collegeId?.name,
             sortable: true,
             grow: 2,
         },
         {
             name: "Admission Fee",
-            selector: (row) => row.admissionFee,
+            selector: (row) => row?.admissionFee,
             sortable: true,
             grow: 2,
         },
         {
             name: "firstName",
-            selector: (row) => row.firstName,
+            selector: (row) => row?.firstName,
             sortable: true,
             grow: 2,
         },
         {
             name: "lastName",
-            selector: (row) => row.lastName,
+            selector: (row) => row?.lastName,
             sortable: true,
             grow: 2,
         },
         {
             name: "email",
-            selector: (row) => row.email,
+            selector: (row) => row?.email,
             sortable: true,
             grow: 2,
         },
