@@ -122,13 +122,13 @@ const Index = () => {
                                             {formik.errors.password}
                                         </Form.Control.Feedback>
                                     </Form.Group>
-                                    <Form.Check
+                                    {/* <Form.Check
                                         type="checkbox"
                                         id="customControlAutosizing"
                                         label="Remember me"
                                         style={{ marginTop: '1rem', marginBottom: '1rem' }}
                                         custom
-                                    />
+                                    /> */}
                                     {/* </Form.Row> */}
 
                                     <Button
