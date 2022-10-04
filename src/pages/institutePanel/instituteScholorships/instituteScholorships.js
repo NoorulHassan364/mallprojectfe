@@ -16,9 +16,9 @@ const InstituteScholorships = () => {
 
     const validSchema = Yup.object().shape({
         name: Yup.string().required("required"),
-        price: Yup.string().required("required"),
+        price: Yup.number().required("required").typeError('you must specify a number'),
         location: Yup.string().required("required"),
-        minimumGpa: Yup.string().required("required"),
+        minimumGpa: Yup.number().required("required").typeError('you must specify a number'),
         degree: Yup.string(),
         deadline: Yup.string(),
     });

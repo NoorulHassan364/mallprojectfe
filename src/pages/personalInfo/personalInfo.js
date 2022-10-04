@@ -12,7 +12,8 @@ const PersonalInfo = () => {
         firstName: Yup.string().required("required"),
         lastName: Yup.string().required("required"),
         email: Yup.string().email().required("required"),
-        phone: Yup.string().required("Required"),
+        phone: Yup.string()
+            .min(10, "At Least 11 digits ").max(10, "Too long").required("required"),
         gender: Yup.string().required("Required"),
         address: Yup.string().required("Required"),
 
@@ -151,8 +152,9 @@ const PersonalInfo = () => {
                                         <Form.Label className="form__label">phone</Form.Label>
                                         <Form.Control
                                             className="p-3 rounded-0"
-                                            type="phone"
+                                            type="number"
                                             name="phone"
+                                            min={11}
                                             placeholder="Enter Your phone"
                                             value={formik.values.phone}
                                             onChange={formik.handleChange}

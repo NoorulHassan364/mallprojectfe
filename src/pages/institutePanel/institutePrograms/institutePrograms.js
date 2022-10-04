@@ -7,6 +7,7 @@ import 'react-tagsinput/react-tagsinput.css';
 import api from '../../../api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
+import * as Yup from 'yup';
 
 const InstitutePrograms = () => {
     const [tags, setTags] = useState([]);
@@ -17,6 +18,10 @@ const InstitutePrograms = () => {
     const handleChangeTags = (tag) => {
         setTags(tag);
     }
+
+    const validSchema = Yup.object().shape({
+        program: Yup.string().required("required")
+    });
 
     const handleProgramModalClose = () => {
         setProgramModal(false);
@@ -129,7 +134,7 @@ const InstitutePrograms = () => {
                         onSubmit={(values, { resetForm }) => {
                             onProgramSubmit(values, resetForm)
                         }}
-                        // validationSchema={validSchema}
+                        validationSchema={validSchema}
                         enableReinitialize
                         initialValues={{
                             program: editProgram?.subject,

@@ -10,8 +10,9 @@ const ContactUs = () => {
     const validSchema = Yup.object().shape({
         firstName: Yup.string().required("required"),
         lastName: Yup.string().required("required"),
-        email: Yup.string().required("required"),
-        phone: Yup.string().required("required"),
+        email: Yup.string().email().required("required"),
+        phone: Yup.string()
+            .min(10, "At Least 11 digits").max(10, "Too long").required("required"),
         address: Yup.string().required("required"),
         message: Yup.string().required("required"),
     });
@@ -108,7 +109,7 @@ const ContactUs = () => {
                                 <Form.Label className="form__label">phone</Form.Label>
                                 <Form.Control
                                     className="p-3 rounded-0"
-                                    type="text"
+                                    type="number"
                                     name="phone"
                                     placeholder="Please Enter Your phone"
                                     value={formik.values.phone}

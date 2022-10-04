@@ -2,7 +2,7 @@ import React from 'react'
 
 const AboutUs = () => {
     return (
-        <div style={{ backgroundColor: 'aliceblue', minHeight: '100%' }}>
+        <div style={{ minHeight: '100%' }}>
             <div className='aboutUs'>
                 <h3 style={{ marginTop: '2rem', color: 'blueviolet' }}>About College Insight</h3>
                 <h6 style={{ marginTop: '2rem', marginBottom: '2rem', fontWeight: 'bold', fontSize: '1.2rem' }}>Facilitating more right-fit matches between students and colleges</h6>

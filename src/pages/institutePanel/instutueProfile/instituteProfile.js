@@ -22,7 +22,8 @@ const InstituteProfile = () => {
         location: Yup.string().required("required"),
         admissionFee: Yup.string().required("required"),
         // programs: Yup.string().required("required"),
-        phone: Yup.string().required("required"),
+        phone: Yup.string()
+            .min(10, "At Least 11 digits").max(10, "Too long").required("required"),
         // image: Yup.string().required("required"),
         // prospectus: Yup.string().required("required")
     });
@@ -162,7 +163,7 @@ const InstituteProfile = () => {
                                     <Form.Label className="form__label">Phone</Form.Label>
                                     <Form.Control
                                         className="p-3 rounded-0"
-                                        type="text"
+                                        type="number"
                                         name="phone"
                                         placeholder="College/Uni Phone"
                                         value={formik.values.phone}
@@ -180,7 +181,7 @@ const InstituteProfile = () => {
                                     <Form.Label className="form__label">Average Cost</Form.Label>
                                     <Form.Control
                                         className="p-3 rounded-0"
-                                        type="text"
+                                        type="number"
                                         name="averageCost"
                                         placeholder="College/Uni AverageCost"
                                         value={formik.values.averageCost}
@@ -200,7 +201,7 @@ const InstituteProfile = () => {
                                     <Form.Label className="form__label">Avg Gpa</Form.Label>
                                     <Form.Control
                                         className="p-3 rounded-0"
-                                        type="text"
+                                        type="number"
                                         name="avgGpa"
                                         placeholder="College/Uni AvgGpa"
                                         value={formik.values.avgGpa}
@@ -217,7 +218,7 @@ const InstituteProfile = () => {
                                     <Form.Label className="form__label">Graduates</Form.Label>
                                     <Form.Control
                                         className="p-3 rounded-0"
-                                        type="text"
+                                        type="number"
                                         name="graduates"
                                         placeholder="College/Uni Graduates"
                                         value={formik.values.graduates}
@@ -237,7 +238,7 @@ const InstituteProfile = () => {
                                     <Form.Label className="form__label">Under Graduates</Form.Label>
                                     <Form.Control
                                         className="p-3 rounded-0"
-                                        type="text"
+                                        type="number"
                                         name="underGraduates"
                                         placeholder="College/Uni Under Graduates"
                                         value={formik.values.underGraduates}
@@ -255,7 +256,7 @@ const InstituteProfile = () => {
                                     <Form.Label className="form__label">Total Students</Form.Label>
                                     <Form.Control
                                         className="p-3 rounded-0"
-                                        type="text"
+                                        type="number"
                                         name="totalStudents"
                                         placeholder="College/Uni TotalStudents"
                                         value={formik.values.totalStudents}
@@ -275,7 +276,7 @@ const InstituteProfile = () => {
                                     <Form.Label className="form__label">Total Teachers</Form.Label>
                                     <Form.Control
                                         className="p-3 rounded-0"
-                                        type="text"
+                                        type="number"
                                         name="totalTeachers"
                                         placeholder="College/Uni TotalTeachers"
                                         value={formik.values.totalTeachers}
@@ -293,7 +294,7 @@ const InstituteProfile = () => {
                                     <Form.Label className="form__label">Admission Fee</Form.Label>
                                     <Form.Control
                                         className="p-3 rounded-0"
-                                        type="text"
+                                        type="number"
                                         name="admissionFee"
                                         placeholder="College/Uni admissionFee"
                                         value={formik.values.admissionFee}

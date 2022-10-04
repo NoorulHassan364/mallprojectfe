@@ -1,5 +1,6 @@
 .section_header {
-    background: url("../../assets//images/fyp_header_img.jpg");
+    background: url("../../assets//images/headerNew.jpg");
+    // background: url("https://gcuf.edu.pk/pages_data/campuses/old-campus/0001%20(14).jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -62,6 +63,7 @@
     align-items: center;
     background: #e9e5e5;
     padding: 4rem;
+    margin-top: 2rem;
 }
 
 @media (max-width: 770px) {

@@ -18,7 +18,8 @@ const ApplicationForm = () => {
         firstName: Yup.string().required("required"),
         lastName: Yup.string().required("required"),
         email: Yup.string().email().required("required"),
-        phone: Yup.string().required("Required"),
+        phone: Yup.string()
+            .min(10, "At Least 11 digits").max(10, "Too long").required("required"),
         gender: Yup.string().required("Required"),
         address: Yup.string().required("Required"),
         state: Yup.string().required("Required"),
@@ -163,7 +164,7 @@ const ApplicationForm = () => {
                                     <Form.Label className="form__label">phone</Form.Label>
                                     <Form.Control
                                         className="p-3 rounded-0"
-                                        type="phone"
+                                        type="number"
                                         name="phone"
                                         placeholder="Enter Your phone"
                                         value={formik.values.phone}
@@ -264,7 +265,7 @@ const ApplicationForm = () => {
                                     <Form.Label className="form__label">Postal/Zip code</Form.Label>
                                     <Form.Control
                                         className="p-3 rounded-0"
-                                        type="text"
+                                        type="number"
                                         name="postalCode"
                                         placeholder="postalCode"
                                         value={formik.values.postalCode}
@@ -401,7 +402,7 @@ const ApplicationForm = () => {
                                     <Form.Label className="form__label">Cnic/B-Form</Form.Label>
                                     <Form.Control
                                         className="p-3 rounded-0"
-                                        type="text"
+                                        type="number"
                                         name="cninc"
                                         placeholder="Enter Your Last Name"
                                         value={formik.values.cninc}

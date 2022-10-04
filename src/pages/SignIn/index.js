@@ -5,6 +5,8 @@ import * as Yup from 'yup';
 import api from '../../api';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/auth';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Index = () => {
     const { isLogin, loginSuccess } = useContext(AuthContext);
@@ -34,6 +36,7 @@ const Index = () => {
             }
         }
         catch (err) {
+            toast("Invalid Email or Password!")
             console.log(err)
         }
     }
