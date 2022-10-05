@@ -106,7 +106,7 @@ const CollegeDetail = () => {
                                 <div className="colegesnap">
                                     <span><FontAwesomeIcon style={{ fontSize: "20px" }} icon={faMoneyCheckDollar} /></span>
                                     <span className='colegesnap_child1'>Average Cost</span>
-                                    <span className="colegesnap_child2">${college?.averageCost}</span>
+                                    <span className="colegesnap_child2">RS.{college?.averageCost}</span>
                                 </div>
                                 <div className="colegesnap">
                                     <span><FontAwesomeIcon style={{ fontSize: "20px" }} icon={faBuildingColumns} /></span>
