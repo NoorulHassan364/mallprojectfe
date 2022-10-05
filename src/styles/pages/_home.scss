@@ -90,6 +90,16 @@
     }
 }
 
+@media (max-width: 770px) {
+    .highSchool {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    .transferStu {
+        margin-top: 2rem;
+    }
+}
+
 @media (max-width: 570px) {
     .section_findSchools {
         padding: 0px;

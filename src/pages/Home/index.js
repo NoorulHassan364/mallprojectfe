@@ -34,7 +34,7 @@ const HomePage = () => {
                             <Col md={6}>
                                 <img style={{ width: '14rem' }} src={highSchoolStdent} alt="" />
                             </Col>
-                            <Col md={6}>
+                            <Col md={6} className="highSchool">
                                 <h6 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>High School Students
                                 </h6>
                                 <p style={{ fontSize: '1.5rem' }}>Start planning as a senior, junior, sophomore, or freshman. Get exactly what you need at any stage of your college journey.</p>
@@ -46,7 +46,7 @@ const HomePage = () => {
                             <Col md={6}>
                                 <img style={{ width: '14rem' }} src={transferStdent} alt="" />
                             </Col>
-                            <Col md={6}>
+                            <Col md={6} className="transferStu">
                                 <h6 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Transfer Students
                                 </h6>
                                 <p style={{ fontSize: '1.5rem' }}>Want to transfer schools? We offer tools and resources for students who are already enrolled to help you transfer schools with confidence.</p>
