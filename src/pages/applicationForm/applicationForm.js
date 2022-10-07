@@ -15,20 +15,21 @@ const ApplicationForm = () => {
     const [loading, setLoading] = useState(null);
 
     const validSchema = Yup.object().shape({
-        firstName: Yup.string().required("required"),
-        lastName: Yup.string().required("required"),
+        firstName: Yup.string().required("required").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
+        lastName: Yup.string().required("required").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
         email: Yup.string().email().required("required"),
         phone: Yup.string()
             .min(10, "At Least 11 digits").max(10, "Too long").required("required"),
         gender: Yup.string().required("Required"),
         address: Yup.string().required("Required"),
-        state: Yup.string().required("Required"),
+        state: Yup.string().required("Required").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
+        secondarySchool1: Yup.string().matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
+        secondarySchool2: Yup.string().matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
         dob: Yup.string().required("Required"),
-        city: Yup.string().required("Required"),
+        city: Yup.string().required("Required").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
         postalCode: Yup.string().required("Required"),
         courseOfStudy: Yup.string().required("Required"),
-        cninc: Yup.string().required("Required")
-
+        cninc: Yup.string().required("Required").min(13, "At Least 13 digits").max(13, "Too long").required("required")
     });
 
     const getCollege = async (values) => {
@@ -310,7 +311,13 @@ const ApplicationForm = () => {
                                             placeholder="secondarySchool1"
                                             value={formik.values.secondarySchool1}
                                             onChange={formik.handleChange}
+                                            onBlur={formik.handleBlur}
+                                            isValid={formik.touched.secondarySchool1 && !formik.errors.secondarySchool1}
+                                            isInvalid={formik.touched.secondarySchool1 && formik.errors.secondarySchool1}
                                         />
+                                        <Form.Control.Feedback type="invalid">
+                                            {formik.errors.secondarySchool1}
+                                        </Form.Control.Feedback>
                                         <Form.Control
                                             className="p-3 rounded-0 mt-3"
                                             type="text"
@@ -318,7 +325,13 @@ const ApplicationForm = () => {
                                             placeholder="secondarySchool2"
                                             value={formik.values.secondarySchool2}
                                             onChange={formik.handleChange}
+                                            onBlur={formik.handleBlur}
+                                            isValid={formik.touched.secondarySchool2 && !formik.errors.secondarySchool2}
+                                            isInvalid={formik.touched.secondarySchool2 && formik.errors.secondarySchool2}
                                         />
+                                        <Form.Control.Feedback type="invalid">
+                                            {formik.errors.secondarySchool2}
+                                        </Form.Control.Feedback>
                                     </Form.Group>
 
                                     <Form.Group controlId="secodarySchollAdress1" as={Col} hasValidation>
@@ -343,7 +356,7 @@ const ApplicationForm = () => {
                                     </Form.Group>
 
                                     <Form.Group controlId="secodarySchollSession1" as={Col} hasValidation>
-                                        <Form.Label className="form__label">secodarySchollSession1</Form.Label>
+                                        <Form.Label className="form__label">Secodary School Session</Form.Label>
                                         <Form.Control
                                             className="p-3 rounded-0"
                                             type="text"
@@ -351,7 +364,6 @@ const ApplicationForm = () => {
                                             placeholder="secodarySchollSession1"
                                             value={formik.values.secodarySchollSession1}
                                             onChange={formik.handleChange}
-
                                         />
                                         <Form.Control
                                             className="p-3 rounded-0 mt-3"

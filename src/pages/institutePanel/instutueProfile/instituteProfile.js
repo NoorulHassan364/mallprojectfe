@@ -12,7 +12,7 @@ const InstituteProfile = () => {
     const [collegeProfile, setCollegeProfile] = useState(null);
 
     const validSchema = Yup.object().shape({
-        name: Yup.string().required("required"),
+        name: Yup.string().required("required").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field"),
         averageCost: Yup.string().required("required"),
         avgGpa: Yup.string().required("required"),
         graduates: Yup.string().required("required"),

@@ -9,8 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const PersonalInfo = () => {
     const [user, setUser] = useState(null);
     const validSchema = Yup.object().shape({
-        firstName: Yup.string().required("required"),
-        lastName: Yup.string().required("required"),
+        firstName: Yup.string().required("required").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field"),
+        lastName: Yup.string().required("required").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field"),
         email: Yup.string().email().required("required"),
         phone: Yup.string()
             .min(10, "At Least 11 digits ").max(10, "Too long").required("required"),
@@ -19,9 +19,9 @@ const PersonalInfo = () => {
 
     });
     const validSchemaPassword = Yup.object().shape({
-        oldPassword: Yup.string().required("required"),
-        newPassword: Yup.string().required("required"),
-        confirmPassword: Yup.string().oneOf([Yup.ref("newPassword"), null], "Passwords must match").required("required"),
+        oldPassword: Yup.string().required("required").min(6, "At Least 6 digits"),
+        newPassword: Yup.string().required("required").min(6, "At Least 6 digits"),
+        confirmPassword: Yup.string().oneOf([Yup.ref("newPassword"), null], "Passwords must match").required("required").min(6, "At Least 6 digits"),
     });
 
     const onSubmit = async (values, resetForm) => {

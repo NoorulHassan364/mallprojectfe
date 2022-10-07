@@ -16,7 +16,7 @@ const Index = () => {
 
     const validSchema = Yup.object().shape({
         email: Yup.string().email().required("required"),
-        password: Yup.string().required("required"),
+        password: Yup.string().required("required").min(6, "At Least 6 digits"),
     });
 
     const resetPasswordvalidSchema = Yup.object().shape({

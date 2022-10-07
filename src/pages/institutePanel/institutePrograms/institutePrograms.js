@@ -20,7 +20,7 @@ const InstitutePrograms = () => {
     }
 
     const validSchema = Yup.object().shape({
-        program: Yup.string().required("required")
+        program: Yup.string().required("required").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field")
     });
 
     const handleProgramModalClose = () => {

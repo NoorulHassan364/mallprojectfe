@@ -27,10 +27,10 @@ const Index = () => {
     // });
 
     const validSchema = Yup.object().shape({
-        firstName: Yup.string().required("required"),
-        lastName: Yup.string().required("required"),
+        firstName: Yup.string().required("required").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
+        lastName: Yup.string().required("required").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
         email: Yup.string().email().required("required"),
-        password: Yup.string().required("required"),
+        password: Yup.string().required("required").min(6, "At Least 6 digits"),
         phone: Yup.string()
             .min(10, "At Least 11 digits").max(10, "Too long").required("required"),
         gender: Yup.string().required("Required"),

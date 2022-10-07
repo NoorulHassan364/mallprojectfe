@@ -16,7 +16,7 @@ const PastPaper = () => {
 
 
     const validSchema = Yup.object().shape({
-        subject: Yup.string().required("required"),
+        subject: Yup.string().required("required").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field"),
         session: Yup.string().required("required"),
         classSemester: Yup.string().required("required"),
     });

@@ -15,11 +15,11 @@ const InstituteScholorships = () => {
 
 
     const validSchema = Yup.object().shape({
-        name: Yup.string().required("required"),
+        name: Yup.string().required("required").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field"),
         price: Yup.number().required("required").typeError('you must specify a number'),
         location: Yup.string().required("required"),
         minimumGpa: Yup.number().required("required").typeError('you must specify a number'),
-        degree: Yup.string(),
+        degree: Yup.string().matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field"),
         deadline: Yup.string(),
     });
 
