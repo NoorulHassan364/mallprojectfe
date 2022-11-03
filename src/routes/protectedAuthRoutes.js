@@ -9,7 +9,6 @@ function ProtectedAuthRoute({ children }) {
   return children;
 }
 
-
 function ProtectedRoute({ children }) {
   const user = localStorage.getItem("user");
   if (user) {
@@ -18,28 +17,27 @@ function ProtectedRoute({ children }) {
   return <Navigate to="/signin" replace />;
 }
 
-
 function ProtectedLandingPage({ children }) {
-  const user = localStorage.getItem("user");
-  if (!user) {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user || user.userType == "user") {
     return children;
   }
-  return <Navigate to="/userDashboard/colleges" replace />;
+  return <Navigate to="/admin/stats" replace />;
 }
 
 function ProtectedInstitueRoute({ children }) {
   const user = JSON.parse(localStorage.getItem("user"));
-  if (user?.userType == "student") {
-    return <Navigate to="/userDashboard/colleges" replace />;
+  if (user?.userType == "user") {
+    return <Navigate to="/" replace />;
   }
   return children;
 }
-function ProtectedStudentRoute({ children }) {
+function ProtectedAdminRoute({ children }) {
   const user = JSON.parse(localStorage.getItem("user"));
-  if (user?.userType == "college") {
-    return <Navigate to="/institute/profile" replace />;
-  } else {
+  if (user?.userType == "admin") {
     return children;
+  } else {
+    return <Navigate to="/" replace />;
   }
 }
 
@@ -47,6 +45,6 @@ export {
   ProtectedAuthRoute,
   ProtectedRoute,
   ProtectedLandingPage,
-  ProtectedInstitueRoute,
-  ProtectedStudentRoute,
+  ProtectedAdminRoute,
+  // ProtectedStudentRoute,
 };

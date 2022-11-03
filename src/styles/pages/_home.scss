@@ -1,12 +1,12 @@
 .section_header {
-    background: url("../../assets//images/headerNew.jpg");
+    background: url("../../assets//images/amuwoHeader.jpg");
     // background: url("https://gcuf.edu.pk/pages_data/campuses/old-campus/0001%20(14).jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     z-index: 0;
-    height: 30rem;
+    height: 35rem;
 }
 .header_text {
     color: #fff !important;
@@ -16,9 +16,10 @@
 .header_h1 {
     font-weight: 700;
     letter-spacing: -1.5px;
-    line-height: 1.1;
+    line-height: 1.3;
     margin: 0;
     text-transform: none;
+    font-weight: 2rem;
 }
 .header_getStartedBtn {
     margin-top: 2rem;
@@ -30,8 +31,14 @@
     padding: 0.5rem;
 }
 .section_toolsAndResources {
-    background-color: #e9e5e5;
+    background-color: #f7f4f4;
     padding: 2rem;
+}
+.section_carousal {
+    background-color: #fc4f4f;
+    color: white;
+    padding: 2rem;
+    height: 29rem;
 }
 .section_findSchools {
     display: flex;
@@ -66,55 +73,114 @@
     margin-top: 2rem;
 }
 
+.walkThroughCards {
+    width: 17rem;
+    padding: 2rem;
+    background-color: white;
+    row-gap: 1rem;
+}
+.seeMoreMain {
+    display: flex;
+    flex-direction: column;
+    height: 18rem;
+    justify-content: space-between;
+}
+.seeMoreBtn {
+    background-color: #fc4f4f;
+    border-color: white;
+    border-width: 0.4rem;
+    width: 12rem;
+    font-size: 1.6rem;
+}
+
+.ourPartners {
+    padding: 6rem;
+}
+.ourpartnerHeading {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.7rem;
+    margin-bottom: 5rem;
+    color: #573476;
+}
+.ourPartnersImages {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+.getInTouch {
+    background: url("../../assets//images/getInTouchImg.jpg");
+    // background: url("https://gcuf.edu.pk/pages_data/campuses/old-campus/0001%20(14).jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    // z-index: 0;
+    height: 35rem;
+    color: white;
+}
+
+.getIntouchPhone {
+    margin-top: 7rem;
+    display: flex;
+    width: 36rem;
+    justify-content: space-between;
+}
+
+.getInTouchMain {
+    padding: 8rem;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+}
+
+.statsChild {
+    width: 15rem;
+    height: 9rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shopCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem 0.3rem;
+    padding: 3rem;
+}
+
+@media (max-width: 720px) {
+    .getIntouchPhone {
+        margin-top: 0rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .getInTouchMain {
+        padding: 5rem;
+    }
+}
+
 @media (max-width: 770px) {
     .section_findSchools {
         display: flex;
         flex-direction: column;
     }
 }
-@media (max-width: 770px) {
-    .section_collegeList {
-        display: flex;
-        flex-direction: column;
-    }
-}
-@media (max-width: 770px) {
-    .section_collegeList {
-        display: flex;
-        flex-direction: column;
-    }
-}
-@media (max-width: 450px) {
-    .header_h1 {
-        font-weight: normal;
-    }
-}
 
-@media (max-width: 770px) {
-    .highSchool {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-    }
-    .transferStu {
-        margin-top: 2rem;
+@media (max-width: 830px) {
+    .stats {
+        flex-direction: column;
+        align-items: center;
     }
 }
-
-@media (max-width: 570px) {
-    .section_findSchools {
-        padding: 0px;
-        width: auto;
-    }
-    .section_findSchools_img {
-        width: auto;
-    }
-    .section_findSchools_txt {
-        width: auto;
-    }
-    .section_collegeList {
-        width: auto;
-    }
-    .section_findSchools_txt {
-        width: auto;
+@media (max-width: 350px) {
+    .statsChild {
+        width: 10rem;
     }
 }

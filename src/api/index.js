@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: 'https://admissionbe.herokuapp.com/api/v1',
+  baseURL: "https://mallproject.herokuapp.com/api/v1",
   // baseURL: 'http://localhost:5000/api/v1',
   // baseURL: process.env.REACT_APP_BACKEND_URL,
 });

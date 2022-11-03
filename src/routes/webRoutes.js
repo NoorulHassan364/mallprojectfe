@@ -1,25 +1,30 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
-import HomePage from '../pages/Home';
-import SignIn from '../pages/SignIn/index';
-import SignUp from '../pages/Signup/index';
-import UserDashboard from '../pages/userDashboard/index';
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+import HomePage from "../pages/Home";
+import SignIn from "../pages/SignIn/index";
+import SignUp from "../pages/Signup/index";
 // import ResetPassword from '../pages/ResetPassword';
 // import Colleges from '../pages/colleges/colleges';
 // import Scholorships from '../pages/scholorships/sholorships';
 // import PastPapers from '../pages/pastPapers/pastPapers';
 // import ScrollToTop from '../components/ScrollToTop';
 // import SideBar from '../components/sideBar/Index';
-import { ProtectedAuthRoute, ProtectedRoute, ProtectedLandingPage, ProtectedInstitueRoute, ProtectedStudentRoute, } from "./protectedAuthRoutes";
-import UserDashboardRoutes from './userDahboardRoutes';
-import InstituteRoutes from './institueRoutes';
-import Logout from './../pages/logout/logout';
-import AboutUs from '../pages/aboutUs/aboutUs';
-import ContactUs from '../pages/contactUs/contactUs';
+import {
+  ProtectedAuthRoute,
+  ProtectedRoute,
+  ProtectedLandingPage,
+  ProtectedAdminRoute,
+  // ProtectedStudentRoute,
+} from "./protectedAuthRoutes";
+import AdminRoutes from "./adminRoutes";
+import Logout from "./../pages/logout/logout";
+import AboutUs from "../pages/aboutUs/aboutUs";
+import ContactUs from "../pages/contactUs/contactUs";
+import Shops from "../pages/shops/shops";
+import UserPurchasedShops from "../pages/userPurchasedShops/userPurchasedShops";
 export default function AppRoutes() {
-
   return (
     <React.Suspense fallback="Loading...">
       {/* <ProtectedNavbar> */}
@@ -80,25 +85,35 @@ export default function AppRoutes() {
             </ProtectedAuthRoute>
           }
         />
+
         <Route
           exact
-          path="/userDashboard/*"
+          path="/shops"
           element={
-            <ProtectedStudentRoute>
-              <UserDashboardRoutes />
-            </ProtectedStudentRoute>
+            <ProtectedLandingPage>
+              <Shops />
+            </ProtectedLandingPage>
           }
         />
         <Route
           exact
-          path="/institute/*"
+          path="/myShops"
           element={
-            <ProtectedInstitueRoute>
-              <InstituteRoutes />
-            </ProtectedInstitueRoute>
+            <ProtectedLandingPage>
+              <UserPurchasedShops />
+            </ProtectedLandingPage>
           }
         />
 
+        <Route
+          exact
+          path="/admin/*"
+          element={
+            <ProtectedAdminRoute>
+              <AdminRoutes />
+            </ProtectedAdminRoute>
+          }
+        />
       </Routes>
       {/* <Footer /> */}
     </React.Suspense>

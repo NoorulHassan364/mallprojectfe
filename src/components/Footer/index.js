@@ -1,12 +1,21 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
+import React from "react";
+import { Container } from "react-bootstrap";
 
 const Footer = () => {
-    return (
-        <div style={{ backgroundColor: 'black', color: 'white', textAlign: 'center', padding: '1rem', bottom: 0, width: '100%' }}>
-            College Insight© 2022
-        </div>
-    )
-}
+  return (
+    <div
+      style={{
+        backgroundColor: "black",
+        color: "white",
+        textAlign: "center",
+        padding: "1rem",
+        bottom: 0,
+        width: "100%",
+      }}
+    >
+      Amuwo Mall © 2022
+    </div>
+  );
+};
 
 export default Footer;
