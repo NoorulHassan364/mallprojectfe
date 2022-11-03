@@ -37,7 +37,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "react-scripts build && aws s3 rm s3://collegeinsight --recursive && aws s3 cp ./build s3://collegeinsight --recursive --acl public-read"
+    "deploy": "react-scripts build && aws s3 rm s3://mallproject --recursive && aws s3 cp ./build s3://mallproject --recursive --acl public-read"
   },
   "eslintConfig": {
     "extends": [
