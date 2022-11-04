@@ -5,6 +5,7 @@ import AddShop from "../pages/adminPages/addShop/addShop";
 import AdminShops from "../pages/adminPages/adminShops/adminShops";
 import Analytics from "../pages/adminPages/analytics/analytics";
 import ContactUs from "../pages/adminPages/analytics/analytics";
+import Categories from "../pages/adminPages/Categories/categories";
 import InterestForm from "../pages/adminPages/interestForm/interestForm";
 
 const InstituteRoutes = () => {
@@ -16,6 +17,7 @@ const InstituteRoutes = () => {
           <Route exact path="/addShop" element={<AddShop />} />
           <Route exact path="/interestForm" element={<InterestForm />} />
           <Route exact path="/shops" element={<AdminShops />} />
+          <Route exact path="/categories" element={<Categories />} />
         </Routes>
       </SideBar>
     </React.Suspense>

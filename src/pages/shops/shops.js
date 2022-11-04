@@ -21,7 +21,7 @@ const Shops = () => {
   const getShops = async () => {
     try {
       let res = await api.get(`/admin/shops`);
-      setShops(res.data.data);
+      setShops(res.data.data?.filter((el) => el.IsSold == false));
     } catch (error) {
       console.log(error);
     }

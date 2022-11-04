@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 const AddShop = () => {
   const [selectPic, setSelectPic] = useState(null);
   const [file, setFile] = useState(null);
+  const [categories, setCategories] = useState(null);
   const navigate = useNavigate();
 
   const validSchema = Yup.object().shape({
@@ -46,6 +47,19 @@ const AddShop = () => {
       console.log(error);
     }
   };
+
+  const getCategories = async () => {
+    try {
+      let res = await api.get(`/admin/category`);
+      setCategories(res.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
 
   return (
     <div className="container-fluid shadow college_container">
@@ -110,8 +124,9 @@ const AddShop = () => {
                     <option value="" disabled>
                       CHOOSE
                     </option>
-                    <option value="food">Food</option>
-                    <option value="sports">SPORTS</option>
+                    {categories?.map((el) => {
+                      return <option value={el?.name}>{el?.name}</option>;
+                    })}
                   </Form.Control>
                   <Form.Control.Feedback type="invalid">
                     {formik.errors.category}

@@ -100,7 +100,7 @@ const AdminShops = () => {
           justifyContent: "space-between",
         }}
       >
-        <h4 style={{ color: "grey" }}>Shopss/Outlets</h4>
+        <h4 style={{ color: "grey" }}>Shops/Outlets</h4>
       </div>
       <hr />
 
@@ -143,14 +143,14 @@ const AdminShops = () => {
                         </span>
                         <span>{el?.price}</span>
                       </div>
-                      {/* <div className="innerTextCollege">
-                        <span className="innerTextCollegeTitle">
-                          <FontAwesomeIcon
-                            icon={faCartShopping}
-                            style={{ color: "darkorange" }}
-                          />
+                      <div className="innerTextCollege">
+                        <span className="innerTextCollegeTitle">Status</span>
+                        <span>
+                          {el?.IsSold
+                            ? `Sold by ${el?.client?.firstName}`
+                            : "Available"}
                         </span>
-                      </div> */}
+                      </div>
                     </div>
                   </p>
                 </div>

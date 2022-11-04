@@ -21,7 +21,10 @@ import {
   // faShieldDog,
 } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
-import { faSignalBars } from "@fortawesome/sharp-solid-svg-icons";
+import {
+  faCassetteTape,
+  faSignalBars,
+} from "@fortawesome/sharp-solid-svg-icons";
 
 const routes = [
   {
@@ -75,6 +78,11 @@ const institueRoutes = [
     path: "/admin/shops",
     name: "Shops",
     icon: <FontAwesomeIcon icon={faBuildingColumns} />,
+  },
+  {
+    path: "/admin/categories",
+    name: "Categories",
+    icon: <FontAwesomeIcon icon={faCassetteTape} />,
   },
   {
     path: "/admin/addShop",
