@@ -200,9 +200,7 @@ const Users = () => {
                 </Form.Row>
                 <Form.Row>
                   <Form.Group controlId="amount" as={Col} hasValidation>
-                    <Form.Label className="form__label">
-                      levey / Bill
-                    </Form.Label>
+                    <Form.Label className="form__label">Amount</Form.Label>
                     <Form.Control
                       className="p-3 rounded-0"
                       type="number"
