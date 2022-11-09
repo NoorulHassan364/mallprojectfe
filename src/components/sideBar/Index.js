@@ -14,6 +14,7 @@ import {
   faPaperPlane,
   faTicket,
   faUser,
+  faUsers,
   // faHandHoldingHand,
   // faPersonChalkboard,
   // faHouseChimney,
@@ -93,6 +94,11 @@ const institueRoutes = [
     path: "/admin/interestForm",
     name: "Interest Form",
     icon: <FontAwesomeIcon icon={faGraduationCap} />,
+  },
+  {
+    path: "/admin/users",
+    name: "Users",
+    icon: <FontAwesomeIcon icon={faUsers} />,
   },
   // {
   //   path: "/institute/personal",

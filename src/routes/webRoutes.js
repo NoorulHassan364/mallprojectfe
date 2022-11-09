@@ -24,6 +24,7 @@ import AboutUs from "../pages/aboutUs/aboutUs";
 import ContactUs from "../pages/contactUs/contactUs";
 import Shops from "../pages/shops/shops";
 import UserPurchasedShops from "../pages/userPurchasedShops/userPurchasedShops";
+import UserLevey from "../pages/userLevey/userLevey";
 export default function AppRoutes() {
   return (
     <React.Suspense fallback="Loading...">
@@ -101,6 +102,16 @@ export default function AppRoutes() {
           element={
             <ProtectedLandingPage>
               <UserPurchasedShops />
+            </ProtectedLandingPage>
+          }
+        />
+
+        <Route
+          exact
+          path="/levey"
+          element={
+            <ProtectedLandingPage>
+              <UserLevey />
             </ProtectedLandingPage>
           }
         />

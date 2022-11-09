@@ -7,6 +7,7 @@ import Analytics from "../pages/adminPages/analytics/analytics";
 import ContactUs from "../pages/adminPages/analytics/analytics";
 import Categories from "../pages/adminPages/Categories/categories";
 import InterestForm from "../pages/adminPages/interestForm/interestForm";
+import Users from "../pages/adminPages/users/users";
 
 const InstituteRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const InstituteRoutes = () => {
           <Route exact path="/interestForm" element={<InterestForm />} />
           <Route exact path="/shops" element={<AdminShops />} />
           <Route exact path="/categories" element={<Categories />} />
+          <Route exact path="/users" element={<Users />} />
         </Routes>
       </SideBar>
     </React.Suspense>
