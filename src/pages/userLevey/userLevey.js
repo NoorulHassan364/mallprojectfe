@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { Button, Spinner, Table } from "react-bootstrap";
 import api from "../../api";
 import { loadStripe } from "@stripe/stripe-js";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 
 const UserLevey = () => {
   const [leveys, setLeveys] = useState(null);
@@ -44,6 +46,33 @@ const UserLevey = () => {
     }
   };
 
+  const hanldeInvoice = (data) => {
+    const doc = new jsPDF();
+
+    // It can parse html:
+    // <table id="my-table"><!-- ... --></table>
+    // autoTable(doc, { html: "#leveyTable" });
+
+    // Or use javascript directly:
+    doc.text(`Invoice#: ${data?.invoiceNo}`, 14, 10);
+    doc.text("Amuwo Mall", 180, 10, null, null, "right");
+
+    autoTable(doc, {
+      head: [["Payment Type", "Amount", "Due Date", "Payed Date", "Status"]],
+      body: [
+        [
+          data?.leveyBillName,
+          data?.amount,
+          data?.dueDate,
+          data?.payedDate,
+          data?.IsPayed ? "Payed" : "Unpayed",
+        ],
+      ],
+    });
+
+    doc.save("table.pdf");
+  };
+
   useEffect(() => {
     getUserLevey();
   }, []);
@@ -60,7 +89,7 @@ const UserLevey = () => {
       </div>
       <hr />
 
-      <Table striped bordered hover>
+      <Table striped bordered hover id="leveyTable">
         <thead>
           <tr>
             <th>Levey/Bill Name</th>
@@ -69,6 +98,7 @@ const UserLevey = () => {
             <th>Attachment</th>
             <th>Status</th>
             <th>Pay Now</th>
+            <th>Invoice</th>
           </tr>
         </thead>
         <tbody>
@@ -103,6 +133,9 @@ const UserLevey = () => {
                       ) : null}
                     </Button>
                   )}
+                </td>
+                <td>
+                  <Button onClick={() => hanldeInvoice(el)}>Download</Button>
                 </td>
               </tr>
             );

@@ -17,6 +17,8 @@
     "bootstrap": "^4.6.0",
     "formik": "^2.2.9",
     "framer-motion": "^6.5.1",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.25",
     "jwt-decode": "^3.1.2",
     "npm": "^8.19.2",
     "react": "^18.2.0",
