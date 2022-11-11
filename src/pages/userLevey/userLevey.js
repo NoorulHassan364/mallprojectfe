@@ -6,6 +6,7 @@ import api from "../../api";
 import { loadStripe } from "@stripe/stripe-js";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
+import { shortFullDate } from "../../utils/dateFormat";
 
 const UserLevey = () => {
   const [leveys, setLeveys] = useState(null);
@@ -64,13 +65,13 @@ const UserLevey = () => {
           data?.leveyBillName,
           data?.amount,
           data?.dueDate,
-          data?.payedDate,
+          shortFullDate(data?.payedDate),
           data?.IsPayed ? "Payed" : "Unpayed",
         ],
       ],
     });
 
-    doc.save("table.pdf");
+    doc.save("invoice.pdf");
   };
 
   useEffect(() => {
@@ -135,7 +136,12 @@ const UserLevey = () => {
                   )}
                 </td>
                 <td>
-                  <Button onClick={() => hanldeInvoice(el)}>Download</Button>
+                  <Button
+                    onClick={() => hanldeInvoice(el)}
+                    disabled={el?.IsPayed ? false : true}
+                  >
+                    Download
+                  </Button>
                 </td>
               </tr>
             );
