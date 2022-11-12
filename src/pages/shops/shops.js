@@ -11,12 +11,15 @@ import { useEffect } from "react";
 import { useState } from "react";
 import api from "../../api";
 import { loadStripe } from "@stripe/stripe-js";
-import { Spinner } from "react-bootstrap";
+import { Button, Modal, Spinner } from "react-bootstrap";
 
 const Shops = () => {
   const [shops, setShops] = useState(null);
   const [form, setFrom] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [rentloading, setRentLoading] = useState(false);
+  const [buyLoading, setBuyLoading] = useState(false);
+  const [shopModal, setShopModal] = useState(false);
+  const [shop, setShop] = useState(null);
 
   const getShops = async () => {
     try {
@@ -35,13 +38,22 @@ const Shops = () => {
     }
   };
 
-  const handleBuyShop = async (shop) => {
+  const handleShop = (shop) => {
+    setShop(shop);
+    setShopModal(true);
+  };
+
+  const handleBuyShop = async (type) => {
     debugger;
     try {
-      setLoading(true);
+      if (type === "buy") {
+        setBuyLoading(true);
+      } else {
+        setRentLoading(true);
+      }
       let user = JSON.parse(localStorage.getItem("user"))._id;
       const session = await api.post(
-        `/shop/checkout-session/${shop?._id}/${user}`,
+        `/shop/checkout-session/${shop?._id}/${user}/?type=${type}`,
         shop
       );
       console.log("session", session);
@@ -53,11 +65,26 @@ const Shops = () => {
       await stripe.redirectToCheckout({
         sessionId: session.data.session.id,
       });
-      setLoading(false);
+      if (type === "buy") {
+        setBuyLoading(true);
+      } else {
+        setRentLoading(true);
+      }
     } catch (err) {
-      setLoading(false);
+      if (type === "buy") {
+        setBuyLoading(true);
+      } else {
+        setRentLoading(true);
+      }
       console.log(err);
     }
+  };
+
+  const handleShopModalClose = () => {
+    setShop(null);
+    setBuyLoading(false);
+    setRentLoading(false);
+    setShopModal(false);
   };
 
   useEffect(() => {
@@ -90,7 +117,12 @@ const Shops = () => {
                   alt="immg"
                 />
                 <div className="card-body">
-                  <span>{el?.category}</span>
+                  <div
+                    style={{ display: "flex", justifyContent: "space-between" }}
+                  >
+                    <span>{el?.category}</span>
+                    <span>Rent: {el?.rent}</span>
+                  </div>
                   <div
                     className="card-title h5"
                     style={{ fontSize: "1.6rem", marginTop: "0.5rem" }}
@@ -125,15 +157,11 @@ const Shops = () => {
                           />
                         </span>
                         <span>
-                          {loading ? (
-                            <Spinner animation="border" size="sm" />
-                          ) : (
-                            <FontAwesomeIcon
-                              icon={faArrowRight}
-                              style={{ color: "green", fontSize: "1.6rem" }}
-                              onClick={() => handleBuyShop(el)}
-                            />
-                          )}
+                          <FontAwesomeIcon
+                            icon={faArrowRight}
+                            style={{ color: "green", fontSize: "1.6rem" }}
+                            onClick={() => handleShop(el)}
+                          />
                         </span>
                       </div>
                     </div>
@@ -144,6 +172,52 @@ const Shops = () => {
           );
         })}
       </div>
+
+      <Modal show={shopModal} onHide={handleShopModalClose} centered size="md">
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Shop</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Button
+              style={{
+                width: "12rem",
+                marginBottom: "1rem",
+                backgroundColor: "blue",
+              }}
+              onClick={() => handleBuyShop("buy")}
+            >
+              {buyLoading ? (
+                <Spinner animation="border" size="sm" />
+              ) : (
+                `Buy Shop -> NGN ${shop?.price}`
+              )}
+            </Button>
+            <Button
+              style={{ width: "12rem", backgroundColor: "brown" }}
+              onClick={() => handleBuyShop("rent")}
+            >
+              {rentloading ? (
+                <Spinner animation="border" size="sm" />
+              ) : (
+                `For Rent -> NGN ${shop?.rent}`
+              )}
+            </Button>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleShopModalClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };

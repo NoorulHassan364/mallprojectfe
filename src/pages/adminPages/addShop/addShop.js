@@ -17,6 +17,7 @@ const AddShop = () => {
     name: Yup.string().required("required"),
     price: Yup.string().required("required"),
     category: Yup.string().required("required"),
+    rent: Yup.string().required("required"),
   });
 
   const handleFormikFileChange = (e, formik) => {
@@ -78,6 +79,7 @@ const AddShop = () => {
             name: "",
             price: "",
             category: "",
+            rent: "",
           }}
         >
           {(formik) => (
@@ -153,6 +155,26 @@ const AddShop = () => {
                   </Form.Control.Feedback>
                 </Form.Group>
 
+                <Form.Group controlId="rent" as={Col} hasValidation>
+                  <Form.Label className="form__label">Rent</Form.Label>
+                  <Form.Control
+                    className="p-3 rounded-0"
+                    type="number"
+                    name="rent"
+                    placeholder="rent"
+                    value={formik.values.rent}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    isValid={formik.touched.rent && !formik.errors.rent}
+                    isInvalid={formik.touched.rent && formik.errors.rent}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {formik.errors.rent}
+                  </Form.Control.Feedback>
+                </Form.Group>
+              </Form.Row>
+
+              <Form.Row>
                 <Form.Group controlId="image" as={Col} hasValidation>
                   <Form.Label className="form__label">Image</Form.Label>
                   <Form.Control
@@ -175,6 +197,8 @@ const AddShop = () => {
                     <img style={{ width: "2rem" }} src={file} alt="" />
                   </div>
                 </Form.Group>
+
+                <Form.Group as={Col} hasValidation></Form.Group>
               </Form.Row>
 
               <Button
