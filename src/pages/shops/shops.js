@@ -121,7 +121,6 @@ const Shops = () => {
                     style={{ display: "flex", justifyContent: "space-between" }}
                   >
                     <span>{el?.category}</span>
-                    <span>Rent: {el?.rent}</span>
                   </div>
                   <div
                     className="card-title h5"
@@ -202,12 +201,14 @@ const Shops = () => {
             </Button>
             <Button
               style={{ width: "12rem", backgroundColor: "brown" }}
-              onClick={() => handleBuyShop("rent")}
+              onClick={() => handleBuyShop("20Percent")}
             >
               {rentloading ? (
                 <Spinner animation="border" size="sm" />
               ) : (
-                `For Rent -> NGN ${shop?.rent}`
+                `20% -> NGN ${Math.round(
+                  (parseInt(shop?.price) / 100) * 20
+                )} rest will be in 7 years`
               )}
             </Button>
           </div>
