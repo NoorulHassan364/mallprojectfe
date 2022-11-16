@@ -141,7 +141,7 @@ const AddShop = () => {
                     className="p-3 rounded-0"
                     type="number"
                     name="price"
-                    placeholder="Price in USD"
+                    placeholder="Price"
                     value={formik.values.price}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}

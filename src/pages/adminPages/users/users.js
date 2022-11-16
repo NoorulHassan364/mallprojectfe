@@ -266,9 +266,9 @@ const Users = () => {
                     </td>
                     <td>
                       {el?.IsPayed ? (
-                        <span style={{ color: "green" }}>Payed</span>
+                        <span style={{ color: "green" }}>Paid</span>
                       ) : (
-                        <span style={{ color: "red" }}>UnPayed</span>
+                        <span style={{ color: "red" }}>UnPaid</span>
                       )}
                     </td>
                   </tr>

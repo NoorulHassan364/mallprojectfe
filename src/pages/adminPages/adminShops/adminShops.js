@@ -145,7 +145,7 @@ const AdminShops = () => {
                             style={{ color: "brown" }}
                           />
                         </span>
-                        <span>${el?.price}</span>
+                        <span>₦.{el?.price}</span>
                       </div>
                       <div className="innerTextCollege">
                         <span className="innerTextCollegeTitle">Status</span>
