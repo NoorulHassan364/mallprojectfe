@@ -29,7 +29,6 @@ const AdminShops = () => {
     name: Yup.string().required("required"),
     price: Yup.string().required("required"),
     category: Yup.string().required("required"),
-    rent: Yup.string().required("required"),
   });
 
   const handleFormikFileChange = (e, formik) => {
@@ -121,7 +120,6 @@ const AdminShops = () => {
                     style={{ display: "flex", justifyContent: "space-between" }}
                   >
                     <span>{el?.category}</span>
-                    <span>Rent: {el?.rent}</span>
                   </div>
                   <div
                     className="card-title h5"
@@ -147,13 +145,13 @@ const AdminShops = () => {
                             style={{ color: "brown" }}
                           />
                         </span>
-                        <span>{el?.price}</span>
+                        <span>${el?.price}</span>
                       </div>
                       <div className="innerTextCollege">
                         <span className="innerTextCollegeTitle">Status</span>
                         <span>
-                          {el?.IsSold
-                            ? `Sold by ${el?.client?.firstName}`
+                          {el?.IsSold || el?.onInstallment
+                            ? `Sold/On Installment by ${el?.client?.firstName}`
                             : "Available"}
                         </span>
                       </div>
@@ -192,7 +190,6 @@ const AdminShops = () => {
               name: editShop?.name,
               price: editShop?.price,
               category: editShop?.category,
-              rent: editShop?.rent,
             }}
           >
             {(formik) => (
@@ -269,26 +266,6 @@ const AdminShops = () => {
                     </Form.Control.Feedback>
                   </Form.Group>
 
-                  <Form.Group controlId="price" as={Col} hasValidation>
-                    <Form.Label className="form__label">Rent</Form.Label>
-                    <Form.Control
-                      className="p-3 rounded-0"
-                      type="number"
-                      name="rent"
-                      placeholder="rent"
-                      value={formik.values.rent}
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      isValid={formik.touched.rent && !formik.errors.rent}
-                      isInvalid={formik.touched.rent && formik.errors.rent}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                      {formik.errors.rent}
-                    </Form.Control.Feedback>
-                  </Form.Group>
-                </Form.Row>
-
-                <Form.Row>
                   <Form.Group controlId="image" as={Col} hasValidation>
                     <Form.Label className="form__label">Image</Form.Label>
                     <Form.Control
@@ -315,7 +292,6 @@ const AdminShops = () => {
                       />
                     </div>
                   </Form.Group>
-                  <Form.Group as={Col} hasValidation></Form.Group>
                 </Form.Row>
               </Form>
             )}

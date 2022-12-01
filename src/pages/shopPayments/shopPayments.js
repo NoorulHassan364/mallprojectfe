@@ -62,7 +62,7 @@ const ShopPayments = () => {
       head: [["Payment Name", "Amount", "Due Date", "Payed Date", "Status"]],
       body: [
         [
-          data?.leveyBillName,
+          data?.paymentName,
           data?.amount,
           data?.dueDate,
           shortFullDate(data?.payedDate),
@@ -86,7 +86,7 @@ const ShopPayments = () => {
           justifyContent: "space-between",
         }}
       >
-        <h4 style={{ color: "grey" }}>Levey / Bills</h4>
+        <h4 style={{ color: "grey" }}>Shop Payments</h4>
       </div>
       <hr />
 

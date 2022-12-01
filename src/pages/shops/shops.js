@@ -24,7 +24,11 @@ const Shops = () => {
   const getShops = async () => {
     try {
       let res = await api.get(`/admin/shops`);
-      setShops(res.data.data?.filter((el) => el.IsSold == false));
+      setShops(
+        res.data.data?.filter(
+          (el) => el.IsSold == false && el.onInstallment == false
+        )
+      );
     } catch (error) {
       console.log(error);
     }
@@ -146,7 +150,7 @@ const Shops = () => {
                             style={{ color: "brown" }}
                           />
                         </span>
-                        <span>{el?.price}</span>
+                        <span>${el?.price}</span>
                       </div>
                       <div className="innerTextCollege">
                         <span className="innerTextCollegeTitle">
@@ -196,7 +200,7 @@ const Shops = () => {
               {buyLoading ? (
                 <Spinner animation="border" size="sm" />
               ) : (
-                `Buy Shop -> NGN ${shop?.price}`
+                `Buy Shop -> $${shop?.price}`
               )}
             </Button>
             <Button
@@ -206,7 +210,7 @@ const Shops = () => {
               {rentloading ? (
                 <Spinner animation="border" size="sm" />
               ) : (
-                `20% -> NGN ${Math.round(
+                `20% -> $${Math.round(
                   (parseInt(shop?.price) / 100) * 20
                 )} rest will be in 7 years`
               )}
