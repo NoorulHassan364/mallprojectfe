@@ -25,6 +25,7 @@ import ContactUs from "../pages/contactUs/contactUs";
 import Shops from "../pages/shops/shops";
 import UserPurchasedShops from "../pages/userPurchasedShops/userPurchasedShops";
 import UserLevey from "../pages/userLevey/userLevey";
+import ShopPayments from "../pages/shopPayments/shopPayments";
 export default function AppRoutes() {
   return (
     <React.Suspense fallback="Loading...">
@@ -93,6 +94,15 @@ export default function AppRoutes() {
           element={
             <ProtectedLandingPage>
               <Shops />
+            </ProtectedLandingPage>
+          }
+        />
+        <Route
+          exact
+          path="/shopPayments"
+          element={
+            <ProtectedLandingPage>
+              <ShopPayments />
             </ProtectedLandingPage>
           }
         />

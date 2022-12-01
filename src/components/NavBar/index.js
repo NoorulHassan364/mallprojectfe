@@ -103,6 +103,9 @@ const NavBar = ({ user }) => {
                   }
                   style={{ marginRight: "3rem" }}
                 >
+                  <NavDropdown.Item href="/shopPayments">
+                    Shop Payments
+                  </NavDropdown.Item>
                   <NavDropdown.Item href="/levey">Levey/Bills</NavDropdown.Item>
                   <NavDropdown.Item href="/myShops">My Shops</NavDropdown.Item>
                   <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
