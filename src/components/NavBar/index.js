@@ -19,7 +19,7 @@ import {
   faU,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import logoBranding from "../../assets/images/amuwoLogo.png";
+import logoBranding from "../../assets/images/impactoLogo.png";
 import userIcon from "../../assets/images/userIcon.png";
 // import userAvatar from "../../assets/images/iconfinder_user.png";
 

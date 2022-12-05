@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Button, Col, Form, Modal, Table } from "react-bootstrap";
+import { Button, Col, Form, Modal, Tab, Table, Tabs } from "react-bootstrap";
 import api from "../../../api";
 import * as Yup from "yup";
 import { Formik } from "formik";
@@ -11,6 +11,7 @@ import { Formik } from "formik";
 const Users = () => {
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState(null);
+  const [shopOwners, setShopOwners] = useState(null);
   const [leveyModal, setleveyModal] = useState(false);
   const [attach, setAttachment] = useState(null);
   const [file, setFile] = useState(null);
@@ -29,7 +30,16 @@ const Users = () => {
   const getUsers = async () => {
     try {
       let res = await api.get(`/admin/users`);
-      setUsers(res.data.data.filter((el) => el?.userType !== "admin"));
+      setShopOwners(
+        res.data.data.filter(
+          (el) => el?.userType !== "admin" && el?.purchases?.length > 0
+        )
+      );
+      setUsers(
+        res.data.data.filter(
+          (el) => el?.userType !== "admin" && el?.purchases?.length == 0
+        )
+      );
     } catch (error) {
       console.log(error);
     }
@@ -87,41 +97,84 @@ const Users = () => {
         <h4 style={{ color: "grey" }}>All Users</h4>
       </div>
       <hr />
-
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Address</th>
-            <th>Levy/Bill</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users?.map((el, index) => {
-            return (
+      <Tabs
+        defaultActiveKey="interestedBuyers"
+        id="uncontrolled-tab-example"
+        className="mb-3"
+      >
+        <Tab eventKey="interestedBuyers" title="Interested Buyers">
+          <Table striped bordered hover>
+            <thead>
               <tr>
-                <td>{el?.firstName}</td>
-                <td>{el?.lastName}</td>
-                <td>{el?.email}</td>
-                <td>{el?.phone}</td>
-                <td>{el?.address}</td>
-                <td>
-                  {
-                    <FontAwesomeIcon
-                      icon={faEye}
-                      style={{ color: "blue" }}
-                      onClick={() => handleViewLevey(el)}
-                    />
-                  }
-                </td>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                {/* <th>Levy/Bill</th> */}
               </tr>
-            );
-          })}
-        </tbody>
-      </Table>
+            </thead>
+            <tbody>
+              {users?.map((el, index) => {
+                return (
+                  <tr>
+                    <td>{el?.firstName}</td>
+                    <td>{el?.lastName}</td>
+                    <td>{el?.email}</td>
+                    <td>{el?.phone}</td>
+                    <td>{el?.address}</td>
+                    {/* <td>
+                      {
+                        <FontAwesomeIcon
+                          icon={faEye}
+                          style={{ color: "blue" }}
+                          onClick={() => handleViewLevey(el)}
+                        />
+                      }
+                    </td> */}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </Tab>
+        <Tab eventKey="shopOwners" title="Shop Owners">
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Levy/Bill</th>
+              </tr>
+            </thead>
+            <tbody>
+              {shopOwners?.map((el, index) => {
+                return (
+                  <tr>
+                    <td>{el?.firstName}</td>
+                    <td>{el?.lastName}</td>
+                    <td>{el?.email}</td>
+                    <td>{el?.phone}</td>
+                    <td>{el?.address}</td>
+                    <td>
+                      {
+                        <FontAwesomeIcon
+                          icon={faEye}
+                          style={{ color: "blue" }}
+                          onClick={() => handleViewLevey(el)}
+                        />
+                      }
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </Tab>
+      </Tabs>
 
       <Modal
         show={leveyModal}

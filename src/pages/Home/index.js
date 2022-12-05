@@ -1,8 +1,8 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
-import slide1 from "../../assets/images/slide1.jpg";
-import slide2 from "../../assets/images/slide2.jpg";
-import slide3 from "../../assets/images/slide3.jpg";
+import slide1 from "../../assets/images/slide3aw.png";
+import slide2 from "../../assets/images/slide2aw.png";
+import slide3 from "../../assets/images/slide1aw.png";
 import nestleLogo from "../../assets/images/nestleLogo.png";
 import cocaLogo from "../../assets/images/cocaLogo.png";
 import indimoLogo from "../../assets/images/indimoLogo.png";

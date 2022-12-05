@@ -21,6 +21,10 @@ const Shops = () => {
   const [shopModal, setShopModal] = useState(false);
   const [shop, setShop] = useState(null);
 
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   const getShops = async () => {
     try {
       let res = await api.get(`/admin/shops`);
@@ -150,7 +154,7 @@ const Shops = () => {
                             style={{ color: "brown" }}
                           />
                         </span>
-                        <span>₦.{el?.price}</span>
+                        <span>₦{numberWithCommas(el?.price)}</span>
                       </div>
                       <div className="innerTextCollege">
                         <span className="innerTextCollegeTitle">

@@ -37,6 +37,9 @@ const AdminShops = () => {
     setFile(URL.createObjectURL(e.target.files[0]));
   };
 
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
   const onShopAddSubmit = async (values, resetForm) => {
     try {
       if (selectPic) {
@@ -129,7 +132,7 @@ const AdminShops = () => {
                   </div>
                   <p className="card-text">
                     <div className="innerTextCollegeMain">
-                      <div className="innerTextCollege">
+                      {/* <div className="innerTextCollege">
                         <span className="innerTextCollegeTitle">
                           <FontAwesomeIcon
                             icon={faTimer}
@@ -137,7 +140,7 @@ const AdminShops = () => {
                           />
                         </span>
                         <span>1AM – 10PM</span>
-                      </div>
+                      </div> */}
                       <div className="innerTextCollege">
                         <span className="innerTextCollegeTitle">
                           <FontAwesomeIcon
@@ -145,13 +148,15 @@ const AdminShops = () => {
                             style={{ color: "brown" }}
                           />
                         </span>
-                        <span>₦.{el?.price}</span>
+                        <span>₦{numberWithCommas(el?.price)}</span>
                       </div>
                       <div className="innerTextCollege">
                         <span className="innerTextCollegeTitle">Status</span>
                         <span>
-                          {el?.IsSold || el?.onInstallment
-                            ? `Sold/On Installment by ${el?.client?.firstName}`
+                          {el?.onInstallment
+                            ? `Sold To ${el?.client?.firstName} On Installment`
+                            : el?.IsSold
+                            ? `Sold To ${el?.client?.firstName}`
                             : "Available"}
                         </span>
                       </div>
