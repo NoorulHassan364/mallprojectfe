@@ -1,10 +1,11 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://3.83.132.10:5000/api/v1",
+  baseURL: "https://api.festacitymall.com.ng/api/v1",
+  // baseURL: "https://apis.amuwomall.com.ng/api/v1",
+  // baseURL: "http://3.83.132.10:5000/api/v1",
   // baseURL: "http://localhost:5000/api/v1",
   // baseURL: "https://mallproject.herokuapp.com/api/v1",
-  // baseURL: process.env.REACT_APP_BACKEND_URL,
 });
 
 api.interceptors.request.use((config) => {

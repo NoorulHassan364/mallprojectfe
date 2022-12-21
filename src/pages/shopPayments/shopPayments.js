@@ -33,7 +33,7 @@ const ShopPayments = () => {
         paymnet
       );
       const stripePromise = loadStripe(
-        "pk_test_51LjOurH1uE3Pyj5r2rWw7W5rNMExIlJP15fbAMOB02EdkqqXyTqTkD6wx1WP73BCCbfIcPgqud0Cj9VfL1fy917N00owLZAUUJ"
+        "pk_test_51MC1oTLYdR3jRZzoD17ZjmevBW2CT1TAl0kvu8NcUn624rzhPwQlVrhv3kY60RH8IhKLKQ7nsOLPWmqNrtLcJrti00Gnmo1SGG"
       );
 
       const stripe = await stripePromise;
