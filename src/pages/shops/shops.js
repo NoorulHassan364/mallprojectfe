@@ -22,7 +22,7 @@ const Shops = () => {
   const [shop, setShop] = useState(null);
 
   function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   const getShops = async () => {
@@ -204,7 +204,7 @@ const Shops = () => {
               {buyLoading ? (
                 <Spinner animation="border" size="sm" />
               ) : (
-                `Buy Shop -> $${shop?.price}`
+                `Buy Shop -> ₦${numberWithCommas(shop?.price)}`
               )}
             </Button>
             <Button
@@ -214,8 +214,8 @@ const Shops = () => {
               {rentloading ? (
                 <Spinner animation="border" size="sm" />
               ) : (
-                `20% -> $${Math.round(
-                  (parseInt(shop?.price) / 100) * 20
+                `20% -> ₦${numberWithCommas(
+                  Math.round((parseInt(shop?.price) / 100) * 20)
                 )} rest will be in 7 years`
               )}
             </Button>

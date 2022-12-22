@@ -2,9 +2,9 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: "https://api.festacitymall.com.ng/api/v1",
+  // baseURL: "http://localhost:5000/api/v1",
   // baseURL: "https://apis.amuwomall.com.ng/api/v1",
   // baseURL: "http://3.83.132.10:5000/api/v1",
-  // baseURL: "http://localhost:5000/api/v1",
   // baseURL: "https://mallproject.herokuapp.com/api/v1",
 });
 

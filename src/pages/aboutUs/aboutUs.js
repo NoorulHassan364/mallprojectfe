@@ -5,7 +5,7 @@ const AboutUs = () => {
     <div style={{ minHeight: "100%" }}>
       <div class="aboutUs">
         <h3 style={{ marginTop: "2rem", color: "blueviolet" }}>
-          About Amuwo Mall
+          About Festacity Mall
         </h3>
         <hr />
         <h6
@@ -19,18 +19,19 @@ const AboutUs = () => {
           INTRODUCTION
         </h6>
         <span style={{ fontSize: "1.1rem", letterSpacing: "0.019rem" }}>
-          Amuwo Mall is the largest and most-visited retail shopping mall,
+          Festacity Mall is the largest and most-visited retail shopping mall,
           located in the Nigeria. It is the one stop shopping attraction for the
           latest in clothing, accessories, grocery, dining &amp; fitness which
-          welcomes more than 5 lac visitors monthly. Amuwo Mall offers unmatched
-          premium spaces to retail outlets in the state of the art commercial
-          building, ideally situated at the commercial hub of Nigeria.
+          welcomes more than 5 lac visitors monthly. Festacity Mall offers
+          unmatched premium spaces to retail outlets in the state of the art
+          commercial building, ideally situated at the commercial hub of
+          Nigeria.
           <br />
           <br />
-          Amuwo Mall premeditated at a piece of land of more than 6576 square
-          meters. It has 8 floors and 4 basements, each designed as a separate
-          module for different types of activities. All the basements are
-          reserved for ample car parking to serve large number of customers.
+          Festacity Mall premeditated at a piece of land of more than 6576
+          square meters. It has 8 floors and 4 basements, each designed as a
+          separate module for different types of activities. All the basements
+          are reserved for ample car parking to serve large number of customers.
           First four floors (Lower Ground, Ground, First and Second Floor) are
           for shops that offer an excellent business opportunity to a variety of
           renowned outlets whereas 3rd, 4th and 5th floors are fixed for Food
@@ -76,12 +77,12 @@ const AboutUs = () => {
           Shopping Area
         </h6>
         <span style={{ fontSize: "1.1rem", letterSpacing: "0.019rem" }}>
-          Amuwo Mall first four floors are for famous brand outlets that offers
-          an excellent business opportunity to a variety of renowned outlets.
-          Most Famous brands are Chenone, Stylo, Bata, Gul-ahmed, Brandland,
-          Miniso, Uniworth, Ideas by Gull Ahmad, limelight, Kross culture,
-          Cambridge, Dinners, Edenrobe, logo, Monark, Charcoal, Cougar, Alkarm
-          Studio and Defacto.
+          Festacity Mall first four floors are for famous brand outlets that
+          offers an excellent business opportunity to a variety of renowned
+          outlets. Most Famous brands are Chenone, Stylo, Bata, Gul-ahmed,
+          Brandland, Miniso, Uniworth, Ideas by Gull Ahmad, limelight, Kross
+          culture, Cambridge, Dinners, Edenrobe, logo, Monark, Charcoal, Cougar,
+          Alkarm Studio and Defacto.
         </span>
         <h6
           style={{
@@ -139,9 +140,10 @@ const AboutUs = () => {
           Location
         </h6>
         <span style={{ fontSize: "1.1rem", letterSpacing: "0.019rem" }}>
-          Amuwo Mall is ideally situated at the retail hub of dash Town, dash
-          Road, Nigeria. Main commuting road for dash Town, Township, Faisal
-          Town, Garden Town Johar Town and many other residential areas....
+          Festacity Mall is ideally situated at the retail hub of dash Town,
+          dash Road, Nigeria. Main commuting road for dash Town, Township,
+          Faisal Town, Garden Town Johar Town and many other residential
+          areas....
         </span>
       </div>
     </div>

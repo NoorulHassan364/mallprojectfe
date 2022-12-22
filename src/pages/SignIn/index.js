@@ -86,8 +86,8 @@ const Index = () => {
             <h6 className="text-center sigin_heading1">Welcome Back</h6>
             <br />
             <p className="sigin_heading2">
-              Amuwo Mall satisfying our customers needs and wants with
-              affordable shops that meets their taste, Amuwo Mall <br /> has
+              Festacity Mall satisfying our customers needs and wants with
+              affordable shops that meets their taste, Festacity Mall <br /> has
               your back every step of the way.
             </p>
           </Col>

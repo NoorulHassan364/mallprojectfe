@@ -56,7 +56,7 @@ const UserLevey = () => {
 
     // Or use javascript directly:
     doc.text(`Invoice#: ${data?.invoiceNo}`, 14, 10);
-    doc.text("Amuwo Mall", 180, 10, null, null, "right");
+    doc.text("Festacity Mall", 180, 10, null, null, "right");
 
     autoTable(doc, {
       head: [["Payment Type", "Amount", "Due Date", "Payed Date", "Status"]],

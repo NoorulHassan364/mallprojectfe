@@ -27,7 +27,7 @@ const HomePage = () => {
           <h1 className="header_h1">
             Modern Shops To Let/Sale
             <br />
-            At Amuwo Mall
+            At Festacity Mall
           </h1>
           <p style={{ marginTop: "2rem", fontSize: "1.2rem" }}>
             <strong>
@@ -51,7 +51,7 @@ const HomePage = () => {
             <h2
               style={{ fontSize: "2.3rem", fontWeight: 700, lineHeight: 1.2 }}
             >
-              A quick walk through of how easy it is to acquire your shope
+              A quick walk through of how easy it is to acquire your shop
               outlets with us
             </h2>
             <p style={{ fontSize: "1.1rem", marginTop: "4rem" }}>
@@ -72,35 +72,35 @@ const HomePage = () => {
             >
               <div className="shadow walkThroughCards" data-aos="fade-right">
                 <h4 style={{ textAlign: "center" }}>Select Shop</h4>
-                <p>
+                {/* <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
                   pariatur laudantium ad vero, natus dicta numquam facere
                   consectetur vel est magnam!
-                </p>
+                </p> */}
               </div>
               <div className="shadow walkThroughCards" data-aos="fade-left">
                 <h4 style={{ textAlign: "center" }}>Book</h4>
-                <p>
+                {/* <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
                   pariatur laudantium ad vero, natus dicta numquam facere
                   consectetur vel est magnam!
-                </p>
+                </p> */}
               </div>
               <div className="shadow walkThroughCards" data-aos="fade-right">
                 <h4 style={{ textAlign: "center" }}>Pay</h4>
-                <p>
+                {/* <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
                   pariatur laudantium ad vero, natus dicta numquam facere
                   consectetur vel est magnam!
-                </p>
+                </p> */}
               </div>
               <div className="shadow walkThroughCards" data-aos="fade-left">
                 <h4 style={{ textAlign: "center" }}>Follow up from us</h4>
-                <p>
+                {/* <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
                   pariatur laudantium ad vero, natus dicta numquam facere
                   consectetur vel est magnam!
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
@@ -158,15 +158,15 @@ const HomePage = () => {
           <div class="getIntouchPhone">
             <div style={{ display: "flex", flexDirection: "column" }}>
               <h4 style={{ fontSize: "1.8rem" }}>Phone</h4>
-              <p style={{ fontSize: "1.3rem" }}>+(234)0000000000</p>
-              <p>
+              <p style={{ fontSize: "1.3rem" }}>+(234) 905 549 4284</p>
+              {/* <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Aspernatur, fugiat nihil!. Repellendus dolor quod tempora saepe.
-              </p>
+              </p> */}
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <h4 style={{ fontSize: "1.8rem" }}>Email</h4>
-              <p style={{ fontSize: "1.3rem" }}>contact@amwumall.com</p>
+              <p style={{ fontSize: "1.3rem" }}>contact@festacitymall.com</p>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <img
                   src={fb}
@@ -186,6 +186,9 @@ const HomePage = () => {
               </div>
             </div>
           </div>
+          <p style={{ fontSize: "1.3rem", float: "right" }}>
+            Powered by upstreamnetworks.com.ng
+          </p>
         </div>
       </div>
       <Footer />

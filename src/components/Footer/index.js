@@ -13,7 +13,7 @@ const Footer = () => {
         width: "100%",
       }}
     >
-      Amuwo Mall © 2022
+      Festacity Mall © 2022
     </div>
   );
 };
